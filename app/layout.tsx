@@ -9,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "RENO3D",
-  description: "Architectural visualization and 3D experience studio",
+  title: "بازسازی نو | طراحی و بازسازی مدرن خانه",
+  description: "طراحی و بازسازی مدرن خانه شما با تجربه اسکرول سه‌بعدی",
 };
 
 export default function RootLayout({
@@ -19,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
+    <html lang="fa" dir="rtl" className={`${inter.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col" style={{ fontFamily: "var(--font-persian), var(--font-body)" }}>
         <Navbar />
         {children}
       </body>

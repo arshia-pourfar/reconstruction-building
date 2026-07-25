@@ -1,23 +1,22 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
-import Link from "next/link";
 
 const styles = [
-  { id: "minimalist", label: "Minimalist", multiplier: 1.0 },
-  { id: "modern-luxury", label: "Modern Luxury", multiplier: 1.4 },
-  { id: "japandi", label: "Japandi", multiplier: 1.15 },
+  { id: "minimalist", label: "مینیمال", multiplier: 1.0 },
+  { id: "modern-luxury", label: "لوکس مدرن", multiplier: 1.4 },
+  { id: "japandi", label: "جاپندی", multiplier: 1.15 },
 ] as const;
 
 const scopeLabels = [
-  "Cosmetic Refresh",
-  "Partial Renovation",
-  "Full Renovation",
-  "Complete Redesign",
+  "ترمیم جزئی",
+  "بازسازی نیمه",
+  "بازسازی کامل",
+  "طراحی مجدد",
 ];
 
 function formatPrice(n: number): string {
-  return "$" + n.toLocaleString("en-US");
+  return n.toLocaleString("fa-IR") + " تومان";
 }
 
 export default function Calculator() {
@@ -30,7 +29,7 @@ export default function Calculator() {
 
   const estimate = useMemo(() => {
     const style = styles.find((s) => s.id === styleId) ?? styles[0];
-    const basePerSqm = 220;
+    const basePerSqm = 2200000;
     const scopeFactor = 0.6 + scope * 0.28;
     const low = Math.round(area * basePerSqm * scopeFactor * style.multiplier);
     const high = Math.round(low * 1.5);
@@ -51,10 +50,10 @@ export default function Calculator() {
     <section className="calc-section">
       {/* Heading */}
       <div className="calc-header">
-        <div className="calc-eyebrow">
-          <span className="calc-eyebrow-text">Plan Your Project</span>
+        <div className="eyebrow">
+          <span className="eyebrow-text">تخمین هزینه</span>
         </div>
-        <h2 className="calc-headline">Estimate Your Renovation</h2>
+        <h2 className="section-headline">برآورد هزینه بازسازی</h2>
       </div>
 
       {/* Calculator card */}
@@ -64,8 +63,8 @@ export default function Calculator() {
           {/* Slider 1: Area Size */}
           <div className="calc-field">
             <div className="calc-field-header">
-              <span className="calc-field-label">Area Size</span>
-              <span className="calc-field-value">{area} m²</span>
+              <span className="calc-field-label">متراژ فضا</span>
+              <span className="calc-field-value">{area} متر مربع</span>
             </div>
             <input
               type="range"
@@ -76,18 +75,18 @@ export default function Calculator() {
               onChange={handleAreaChange}
               className="calc-slider"
               style={{ "--fill": `${areaPct}%` } as React.CSSProperties}
-              aria-label="Area size in square meters"
+              aria-label="متراژ فضا"
             />
             <div className="calc-slider-ticks">
-              <span>30 m²</span>
-              <span>300 m²</span>
+              <span>۳۰ متر</span>
+              <span>۳۰۰ متر</span>
             </div>
           </div>
 
           {/* Slider 2: Scope of Work */}
           <div className="calc-field">
             <div className="calc-field-header">
-              <span className="calc-field-label">Scope of Work</span>
+              <span className="calc-field-label">دامنه کار</span>
               <span className="calc-field-value">{scopeLabel}</span>
             </div>
             <input
@@ -99,17 +98,17 @@ export default function Calculator() {
               onChange={handleScopeChange}
               className="calc-slider"
               style={{ "--fill": `${scopePct}%` } as React.CSSProperties}
-              aria-label="Scope of work"
+              aria-label="دامنه کار"
             />
             <div className="calc-slider-ticks">
-              <span>Cosmetic</span>
-              <span>Full Redesign</span>
+              <span>ترمیم جزئی</span>
+              <span>طراحی مجدد</span>
             </div>
           </div>
 
           {/* Style selector */}
           <div className="calc-field">
-            <span className="calc-field-label calc-field-label--block">Style</span>
+            <span className="calc-field-label calc-field-label--block">سبک طراحی</span>
             <div className="calc-radios">
               {styles.map((s) => (
                 <label
@@ -134,19 +133,36 @@ export default function Calculator() {
           </div>
         </div>
 
-        {/* Right panel — result */}
+        {/* Right panel — result + lead form */}
         <div className="calc-result">
-          <span className="calc-result-label">Estimated Cost Range</span>
+          <span className="calc-result-label">برآورد هزینه</span>
           <div className="calc-result-price">
             {formatPrice(estimate.low)} – {formatPrice(estimate.high)}
           </div>
           <p className="calc-result-note">
-            Estimate based on average material and labor costs for your region.
-            Final pricing confirmed after an on-site consultation.
+            این برآورد بر اساس میانگین هزینه متریال و نیروی کار محاسبه شده.
+            قیمت نهایی پس از بازدید حضوری اعلام می‌شود.
           </p>
-          <Link href="/contact" className="calc-result-cta">
-            Book Free Consultation
-          </Link>
+
+          {/* Lead capture form */}
+          <form className="calc-lead-form" onSubmit={(e) => e.preventDefault()}>
+            <input
+              type="text"
+              placeholder="نام و نام خانوادگی"
+              className="calc-lead-input"
+              required
+            />
+            <input
+              type="tel"
+              placeholder="شماره تماس"
+              className="calc-lead-input"
+              dir="ltr"
+              required
+            />
+            <button type="submit" className="calc-lead-btn">
+              مشاوره رایگان
+            </button>
+          </form>
         </div>
       </div>
     </section>

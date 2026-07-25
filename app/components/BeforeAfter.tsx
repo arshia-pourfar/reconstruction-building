@@ -3,9 +3,9 @@
 import { useRef, useState, useCallback } from "react";
 
 const materialTags = [
-  { id: 1, label: "Microcement Wall", x: "22%", y: "45%" },
-  { id: 2, label: "Oak Paneling", x: "68%", y: "55%" },
-  { id: 3, label: "LED Accent Light", x: "78%", y: "30%" },
+  { id: 1, label: "میکروسمنت", x: "22%", y: "45%" },
+  { id: 2, label: "پنل چوبی", x: "68%", y: "55%" },
+  { id: 3, label: "نور توکار", x: "78%", y: "30%" },
 ];
 
 export default function BeforeAfter() {
@@ -47,10 +47,12 @@ export default function BeforeAfter() {
     <section className="ba-section">
       {/* Heading */}
       <div className="ba-header">
-        <div className="ba-eyebrow">
-          <span className="ba-eyebrow-text">Before / After</span>
+        <div className="eyebrow">
+          <span className="eyebrow-text">قبل و بعد</span>
         </div>
-        <h2 className="ba-headline">Watch the Metamorphosis</h2>
+        <h2 className="section-headline" style={{ color: "var(--off-white)" }}>
+          مشاهده تحول فضا
+        </h2>
       </div>
 
       {/* Split-view frame */}
@@ -66,21 +68,29 @@ export default function BeforeAfter() {
           className="ba-side ba-side--before"
           style={{ clipPath: `inset(0 ${100 - splitPos}% 0 0)` }}
         >
-          <div className="ba-placeholder ba-placeholder--before" />
+          <img
+            src="/projects/before-p1.png"
+            alt="قبل از بازسازی"
+            className="ba-img"
+          />
           <div className="ba-label ba-label--before">
-            <span>Raw Structure</span>
+            <span>قبل</span>
             <span className="ba-label-sep">—</span>
-            <span>Before</span>
+            <span>BEFORE</span>
           </div>
         </div>
 
         {/* After side (right) — full width, behind before */}
         <div className="ba-side ba-side--after">
-          <div className="ba-placeholder ba-placeholder--after" />
+          <img
+            src="/projects/after-p1.png"
+            alt="بعد از بازسازی"
+            className="ba-img"
+          />
           <div className="ba-label ba-label--after">
-            <span>Luxury Renovation</span>
+            <span>بعد</span>
             <span className="ba-label-sep">—</span>
-            <span>After</span>
+            <span>AFTER</span>
           </div>
         </div>
 

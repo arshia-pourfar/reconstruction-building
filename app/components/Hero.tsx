@@ -1,104 +1,69 @@
 "use client";
 
-import { useState } from "react";
-
-const pins = [
-  { id: 1, label: "Oak Console Table", x: "28%", y: "58%" },
-  { id: 2, label: "Bouclé Sofa", x: "55%", y: "65%" },
-  { id: 3, label: "Matte Pendant Light", x: "42%", y: "32%" },
-];
-
-const controls = ["360°", "Day/Night", "Materials", "Fullscreen"];
-
 export default function Hero() {
-  const [activePin, setActivePin] = useState<number | null>(null);
-
   return (
-    <section className="hero">
-      {/* Eyebrow */}
-      <div className="hero-eyebrow">
-        <span className="hero-eyebrow-text">Interactive 3D Renovation Studio</span>
+    <section className="hero-v2">
+      {/* Background image */}
+      <div className="hero-v2-bg">
+        <img
+          src="/hero-image.png"
+          alt="بازسازی مدرن خانه"
+          className="hero-v2-bg-img"
+        />
+        <div className="hero-v2-bg-overlay" />
       </div>
 
-      {/* Headline */}
-      <h1 className="hero-headline">
-        Transforming Spaces
-        <br />
-        into 3D Reality
-      </h1>
-
-      {/* Subheadline */}
-      <p className="hero-sub">
-        Scroll to experience interactive, real-time home renovation.
-      </p>
-
-      {/* CTA */}
-      <button className="hero-cta">
-        <svg
-          className="hero-cta-icon"
-          width="14"
-          height="14"
-          viewBox="0 0 14 14"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M3 1.5L12 7L3 12.5V1.5Z" fill="currentColor" />
-        </svg>
-        Start 3D Tour
-      </button>
-
-      {/* Render Frame */}
-      <div className="render-frame">
-        {/* Placeholder gradient simulating a living room render */}
-        <div className="render-placeholder" />
-
-        {/* Top-left label */}
-        <div className="render-label">
-          <span>Living Room</span>
-          <span className="render-label-sep">—</span>
-          <span>Real-Time 3D Render</span>
+      {/* Content overlay */}
+      <div className="hero-v2-content">
+        {/* Eyebrow pill */}
+        <div className="hero-v2-eyebrow">
+          <span className="hero-v2-eyebrow-dot" />
+          <span>بازسازی سه‌بعدی تعاملی</span>
         </div>
 
-        {/* Top-right camera icon */}
-        <button className="render-camera" aria-label="Rotate camera">
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
-            <circle cx="12" cy="13" r="4" />
+        {/* Headline */}
+        <h1 className="hero-v2-headline">
+          طراحی و بازسازی مدرن
+          <br />
+          خانه شما
+        </h1>
+
+        {/* Subheadline */}
+        <p className="hero-v2-sub">
+          با تجربه اسکرول سه‌بعدی، فضای رویایی خود را زندگی کنید.
+        </p>
+
+        {/* CTA Button */}
+        <a href="/contact" className="hero-v2-cta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
           </svg>
-        </button>
+          مشاوره رایگان
+        </a>
 
-        {/* Floating pins */}
-        {pins.map((pin) => (
-          <button
-            key={pin.id}
-            className={`render-pin ${activePin === pin.id ? "render-pin--active" : ""}`}
-            style={{ left: pin.x, top: pin.y }}
-            onMouseEnter={() => setActivePin(pin.id)}
-            onMouseLeave={() => setActivePin(null)}
-            aria-label={pin.label}
-          >
-            <span className="render-pin-dot" />
-            <span className="render-pin-label">{pin.label}</span>
-          </button>
-        ))}
-
-        {/* Bottom control bar */}
-        <div className="render-controls">
-          {controls.map((ctrl) => (
-            <button key={ctrl} className="render-control-pill">
-              {ctrl}
-            </button>
-          ))}
+        {/* Trust indicators */}
+        <div className="hero-v2-trust">
+          <div className="hero-v2-trust-item">
+            <span className="hero-v2-trust-num">۱۵۰+</span>
+            <span className="hero-v2-trust-label">پروژه موفق</span>
+          </div>
+          <div className="hero-v2-trust-sep" />
+          <div className="hero-v2-trust-item">
+            <span className="hero-v2-trust-num">۱۲</span>
+            <span className="hero-v2-trust-label">سال تجربه</span>
+          </div>
+          <div className="hero-v2-trust-sep" />
+          <div className="hero-v2-trust-item">
+            <span className="hero-v2-trust-num">۹۸٪</span>
+            <span className="hero-v2-trust-label">رضایت مشتری</span>
+          </div>
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="hero-v2-scroll">
+        <div className="hero-v2-scroll-line" />
+        <span>اسکرول کنید</span>
       </div>
     </section>
   );
