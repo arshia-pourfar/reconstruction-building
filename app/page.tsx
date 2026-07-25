@@ -1,5 +1,4 @@
 import Hero from "./components/Hero";
-import BeforeAfter from "./components/BeforeAfter";
 import FeaturedPortfolio from "./components/FeaturedPortfolio";
 import Calculator from "./components/Calculator";
 import ServicesMaterialGrid from "./components/ServicesMaterialGrid";
@@ -13,9 +12,8 @@ export default function Home() {
     <main className="flex flex-col flex-1">
       {/* 1. Navbar — rendered in layout.tsx */}
 
-      {/* 2. Hero + Before/After Slider */}
+      {/* 2. Hero with integrated Before/After slider */}
       <Hero />
-      <BeforeAfter />
 
       {/* 3. Featured Portfolio */}
       <FeaturedPortfolio />

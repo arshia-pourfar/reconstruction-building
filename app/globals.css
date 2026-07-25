@@ -2832,53 +2832,50 @@ body {
 }
 
 /* ══════════════════════════════════════════════════════════
-   HERO v2 — Full-Width Background Image with Persian Text
+   HERO v2 — Text Left + Before/After Slider Right
    ══════════════════════════════════════════════════════════ */
 
 .hero-v2 {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
   background: var(--matte-slate);
-  margin-top: 0;
 }
 
 .hero-v2-bg {
   position: absolute;
   inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 30% 50%, rgba(179, 140, 96, 0.06), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 30%, rgba(60, 55, 50, 0.1), transparent),
+    linear-gradient(160deg, #2A2520 0%, #1B1D1F 35%, #141516 70%, #0F1011 100%);
   z-index: 0;
 }
 
-.hero-v2-bg-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.hero-v2-bg-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(27, 29, 31, 0.85) 0%,
-    rgba(27, 29, 31, 0.6) 40%,
-    rgba(27, 29, 31, 0.2) 70%,
-    transparent 100%
-  );
-}
-
-.hero-v2-content {
+.hero-v2-inner {
   position: relative;
   z-index: 2;
   display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--side-pad);
+  gap: 48px;
+}
+
+/* ── Left: Text Content ───────────────────────────────────── */
+
+.hero-v2-content {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 600px;
-  padding: 140px var(--side-pad) 80px;
+  flex: 1;
+  min-width: 0;
 }
 
 .hero-v2-eyebrow {
@@ -2890,7 +2887,7 @@ body {
   background: rgba(179, 140, 96, 0.12);
   border: 1px solid rgba(179, 140, 96, 0.2);
   border-radius: var(--radius-pill);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .hero-v2-eyebrow span:last-child {
@@ -2915,22 +2912,22 @@ body {
 
 .hero-v2-headline {
   font-family: var(--font-persian);
-  font-size: 52px;
+  font-size: 48px;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--off-white);
-  margin: 0 0 24px;
+  margin: 0 0 20px;
 }
 
 .hero-v2-sub {
   font-family: var(--font-persian);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.7;
-  color: rgba(246, 244, 241, 0.65);
-  margin: 0 0 36px;
-  max-width: 420px;
+  color: rgba(246, 244, 241, 0.55);
+  margin: 0 0 32px;
+  max-width: 380px;
 }
 
 .hero-v2-cta {
@@ -2972,7 +2969,7 @@ body {
   display: flex;
   align-items: center;
   gap: 24px;
-  margin-top: 48px;
+  margin-top: 40px;
 }
 
 .hero-v2-trust-item {
@@ -2983,7 +2980,7 @@ body {
 
 .hero-v2-trust-num {
   font-family: var(--font-persian);
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--off-white);
 }
@@ -2992,61 +2989,185 @@ body {
   font-family: var(--font-persian);
   font-size: 12px;
   font-weight: 400;
-  color: rgba(246, 244, 241, 0.45);
+  color: rgba(246, 244, 241, 0.4);
 }
 
 .hero-v2-trust-sep {
   width: 1px;
-  height: 36px;
-  background: rgba(246, 244, 241, 0.15);
+  height: 32px;
+  background: rgba(246, 244, 241, 0.12);
 }
 
-/* ── Scroll Indicator ────────────────────────────────────── */
+/* ── Right: Before/After Slider ───────────────────────────── */
 
-.hero-v2-scroll {
+.hero-v2-slider {
+  position: relative;
+  flex: 1.1;
+  min-width: 0;
+  height: 480px;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+  border: 1px solid rgba(246, 244, 241, 0.08);
+}
+
+.hero-v2-side {
   position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  inset: 0;
 }
 
-.hero-v2-scroll span {
+.hero-v2-side--before { z-index: 2; }
+.hero-v2-side--after { z-index: 1; }
+
+.hero-v2-side-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-v2-label {
+  position: absolute;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 14px;
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  z-index: 3;
+}
+
+.hero-v2-label--before {
+  left: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(246, 244, 241, 0.8);
+}
+
+.hero-v2-label--after {
+  right: 16px;
+  background: rgba(179, 140, 96, 0.2);
+  border: 1px solid rgba(179, 140, 96, 0.3);
+  color: var(--oak);
+}
+
+.hero-v2-label-sep { opacity: 0.4; }
+
+/* ── Drag Handle ──────────────────────────────────────────── */
+
+.hero-v2-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  transform: translateX(-50%);
+  cursor: ew-resize;
+}
+
+.hero-v2-handle-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: rgba(246, 244, 241, 0.5);
+  transform: translateX(-50%);
+}
+
+.hero-v2-handle-knob {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: var(--off-white);
+  border-radius: 50%;
+  color: var(--matte-slate);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 3px rgba(246, 244, 241, 0.15);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero-v2-handle:hover .hero-v2-handle-knob,
+.hero-v2-handle:focus-visible .hero-v2-handle-knob {
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px rgba(179, 140, 96, 0.3);
+}
+
+.hero-v2-handle:focus-visible { outline: none; }
+
+.hero-v2-handle:focus-visible .hero-v2-handle-knob {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 0 4px var(--oak);
+}
+
+/* ── Material Tags ────────────────────────────────────────── */
+
+.hero-v2-tag {
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px 6px 6px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(246, 244, 241, 0.1);
+  border-radius: var(--radius-pill);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.hero-v2-tag-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--oak);
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(179, 140, 96, 0.2);
+}
+
+.hero-v2-tag-label {
   font-family: var(--font-persian);
   font-size: 11px;
   font-weight: 500;
-  color: rgba(246, 244, 241, 0.35);
-  letter-spacing: 0.5px;
+  color: var(--off-white);
+  white-space: nowrap;
 }
 
-.hero-v2-scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(180deg, rgba(246, 244, 241, 0.3) 0%, transparent 100%);
-  animation: scroll-pulse 2s ease-in-out infinite;
-}
-
-@keyframes scroll-pulse {
-  0%, 100% { opacity: 1; transform: scaleY(1); }
-  50% { opacity: 0.4; transform: scaleY(0.7); }
-}
-
-/* ── Hero Responsive ─────────────────────────────────────── */
+/* ── Hero Responsive ──────────────────────────────────────── */
 
 @media (max-width: 1024px) {
+  .hero-v2 {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .hero-v2-inner {
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px var(--side-pad) 60px;
+    gap: 40px;
+  }
+
   .hero-v2-content {
-    max-width: 100%;
-    padding: 120px var(--side-pad) 80px;
     align-items: center;
     text-align: center;
   }
 
   .hero-v2-headline {
-    font-size: 40px;
+    font-size: 38px;
   }
 
   .hero-v2-sub {
@@ -3056,15 +3177,25 @@ body {
   .hero-v2-trust {
     justify-content: center;
   }
+
+  .hero-v2-slider {
+    width: 100%;
+    height: 400px;
+  }
 }
 
 @media (max-width: 640px) {
-  .hero-v2-content {
-    padding: 100px 24px 60px;
+  .hero-v2-inner {
+    padding: 100px 24px 48px;
   }
 
   .hero-v2-headline {
-    font-size: 32px;
+    font-size: 30px;
+  }
+
+  .hero-v2-slider {
+    height: 300px;
+    border-radius: 16px;
   }
 
   .hero-v2-trust {
@@ -3072,7 +3203,12 @@ body {
   }
 
   .hero-v2-trust-num {
-    font-size: 20px;
+    font-size: 18px;
+  }
+
+  .hero-v2-handle-knob {
+    width: 36px;
+    height: 36px;
   }
 }
 
