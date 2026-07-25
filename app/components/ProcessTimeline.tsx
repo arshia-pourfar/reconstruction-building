@@ -46,29 +46,29 @@ const steps = [
 
 export default function ProcessTimeline() {
   return (
-    <section className="process-section">
-      <div className="process-inner">
-        <div className="process-header">
-          <div className="eyebrow" style={{ background: "rgba(255,255,255,0.1)" }}>
-            <span className="eyebrow-text">فرآیند کار</span>
+    <section className="w-full" style={{ padding: "var(--section-pad) var(--side-pad)", background: "var(--matte-slate)" }}>
+      <div className="mx-auto max-w-[var(--container-max)]">
+        <div className="flex flex-col items-center mb-16">
+          <div className="inline-flex items-center h-8 px-[18px] rounded-full mb-6" style={{ background: "rgba(255,255,255,0.1)" }}>
+            <span className="text-xs font-semibold tracking-[1.5px] uppercase text-[var(--oak)]">فرآیند کار</span>
           </div>
-          <h2 className="section-headline" style={{ color: "var(--off-white)" }}>
+          <h2 className="text-[40px] font-semibold leading-[1.15] tracking-tight text-center mb-4" style={{ color: "var(--off-white)" }}>
             از ایده تا اجرا
           </h2>
         </div>
 
-        <div className="process-timeline">
+        <div className="grid gap-8 relative grid-cols-4">
           {/* Connecting line */}
-          <div className="process-line" />
+          <div className="absolute top-7 left-[12.5%] right-[12.5%] h-0.5" style={{ background: "linear-gradient(90deg, rgba(37,99,235,0.2), rgba(37,99,235,0.5) 50%, rgba(37,99,235,0.2))" }} />
 
-          {steps.map((step, i) => (
-            <div key={step.num} className="process-step">
-              <div className="process-step-dot">
-                <div className="process-step-icon">{step.icon}</div>
+          {steps.map((step) => (
+            <div key={step.num} className="flex flex-col items-center text-center relative">
+              <div className="flex items-center justify-center w-14 h-14 rounded-full mb-5 relative z-[2]" style={{ background: "rgba(37,99,235,0.1)", border: "2px solid rgba(37,99,235,0.3)" }}>
+                <div style={{ color: "var(--blue-cta)" }}>{step.icon}</div>
               </div>
-              <div className="process-step-num">{step.num}</div>
-              <h3 className="process-step-title">{step.title}</h3>
-              <p className="process-step-desc">{step.desc}</p>
+              <div className="text-sm font-bold mb-2 text-[var(--blue-cta)]">{step.num}</div>
+              <h3 className="text-base font-bold m-0 mb-2 text-[var(--off-white)]">{step.title}</h3>
+              <p className="text-[13px] leading-[1.65] m-0" style={{ color: "rgba(246,244,241,0.5)" }}>{step.desc}</p>
             </div>
           ))}
         </div>

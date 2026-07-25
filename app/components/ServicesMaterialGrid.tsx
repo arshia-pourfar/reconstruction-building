@@ -69,40 +69,40 @@ const materials = [
 
 export default function ServicesMaterialGrid() {
   return (
-    <section className="sm-section">
-      <div className="sm-inner">
+    <section className="w-full" style={{ padding: "var(--section-pad) var(--side-pad)", background: "var(--warm-gray)" }}>
+      <div className="mx-auto max-w-[var(--container-max)]">
         {/* Services grid */}
-        <div className="sm-header">
-          <div className="eyebrow">
-            <span className="eyebrow-text">خدمات و متریال</span>
+        <div className="flex flex-col items-center" style={{ marginBottom: "var(--heading-gap)" }}>
+          <div className="inline-flex items-center h-8 px-[18px] rounded-full mb-6 bg-[var(--matte-slate)]">
+            <span className="text-xs font-semibold tracking-[1.5px] uppercase text-[var(--oak)]">خدمات و متریال</span>
           </div>
-          <h2 className="section-headline">خدمات تخصصی و پالت متریال</h2>
+          <h2 className="text-[40px] font-semibold leading-[1.15] tracking-tight text-center mb-4 text-[var(--foreground)]">خدمات تخصصی و پالت متریال</h2>
         </div>
 
-        <div className="sm-services-grid">
+        <div className="grid gap-5 mb-14 grid-cols-4">
           {services.map((s) => (
-            <Link key={s.id} href="/services" className="sm-service-card">
-              <div className="sm-service-swatch" style={{ background: s.gradient }} />
-              <div className="sm-service-body">
-                <div className="sm-service-icon">{s.icon}</div>
-                <h3 className="sm-service-title">{s.title}</h3>
-                <p className="sm-service-desc">{s.desc}</p>
+            <Link key={s.id} href="/services" className="rounded-[20px] overflow-hidden transition-all duration-300 flex flex-col no-underline bg-white group hover:-translate-y-1" style={{ border: "1px solid rgba(0,0,0,0.06)", boxShadow: "0 20px 48px rgba(0,0,0,0.08)" }}>
+              <div className="w-full h-[140px]" style={{ background: s.gradient }} />
+              <div className="p-5">
+                <div className="flex items-center justify-center w-10 h-10 rounded-xl mb-3" style={{ background: "rgba(37,99,235,0.06)", color: "var(--blue-cta)" }}>{s.icon}</div>
+                <h3 className="text-[15px] font-bold m-0 mb-1.5 text-[var(--foreground)]">{s.title}</h3>
+                <p className="text-xs leading-[1.6] m-0 text-[var(--concrete)]">{s.desc}</p>
               </div>
             </Link>
           ))}
         </div>
 
         {/* Material palette */}
-        <div className="sm-materials">
-          <h3 className="sm-materials-title">پالت متریال</h3>
-          <div className="sm-materials-grid">
+        <div className="text-center">
+          <h3 className="text-xl font-bold m-0 mb-6 text-[var(--foreground)]">پالت متریال</h3>
+          <div className="flex justify-center gap-6 flex-wrap">
             {materials.map((m) => (
-              <div key={m.id} className="sm-material-swatch">
+              <div key={m.id} className="flex flex-col items-center gap-2.5">
                 <div
-                  className="sm-material-color"
-                  style={{ background: m.color }}
+                  className="w-14 h-14 rounded-full shadow-[0_2px_8px_rgba(0,0,0,0.1)]"
+                  style={{ background: m.color, border: "3px solid #fff" }}
                 />
-                <span className="sm-material-name">{m.name}</span>
+                <span className="text-xs font-medium text-[var(--concrete)]">{m.name}</span>
               </div>
             ))}
           </div>

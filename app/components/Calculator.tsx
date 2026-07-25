@@ -47,24 +47,24 @@ export default function Calculator() {
   }, []);
 
   return (
-    <section className="calc-section">
+    <section className="w-full bg-[var(--warm-gray)]" style={{ padding: "var(--section-pad) var(--side-pad)" }}>
       {/* Heading */}
-      <div className="calc-header">
-        <div className="eyebrow">
-          <span className="eyebrow-text">تخمین هزینه</span>
+      <div className="flex flex-col items-center" style={{ marginBottom: "var(--heading-gap)" }}>
+        <div className="inline-flex items-center h-8 px-[18px] rounded-full mb-6 bg-[var(--matte-slate)]">
+          <span className="text-xs font-semibold tracking-[1.5px] uppercase text-[var(--oak)]">تخمین هزینه</span>
         </div>
-        <h2 className="section-headline">برآورد هزینه بازسازی</h2>
+        <h2 className="text-[40px] font-semibold leading-[1.15] tracking-tight text-center mb-4 text-[var(--foreground)]">برآورد هزینه بازسازی</h2>
       </div>
 
       {/* Calculator card */}
-      <div className="calc-card">
+      <div className="flex w-full mx-auto rounded-[20px] overflow-hidden max-w-[1080px] bg-white shadow-[0_20px_48px_rgba(0,0,0,0.08)]">
         {/* Left panel — controls */}
-        <div className="calc-controls">
+        <div className="flex-1 min-w-0 p-10 flex flex-col gap-9">
           {/* Slider 1: Area Size */}
-          <div className="calc-field">
-            <div className="calc-field-header">
-              <span className="calc-field-label">متراژ فضا</span>
-              <span className="calc-field-value">{area} متر مربع</span>
+          <div className="flex flex-col gap-3">
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="text-sm font-semibold text-[var(--foreground)]">متراژ فضا</span>
+              <span className="text-sm font-semibold tabular-nums text-[var(--oak)]">{area} متر مربع</span>
             </div>
             <input
               type="range"
@@ -77,17 +77,17 @@ export default function Calculator() {
               style={{ "--fill": `${areaPct}%` } as React.CSSProperties}
               aria-label="متراژ فضا"
             />
-            <div className="calc-slider-ticks">
+            <div className="flex justify-between text-xs text-[var(--concrete)]" style={{ marginTop: "-4px" }}>
               <span>۳۰ متر</span>
               <span>۳۰۰ متر</span>
             </div>
           </div>
 
           {/* Slider 2: Scope of Work */}
-          <div className="calc-field">
-            <div className="calc-field-header">
-              <span className="calc-field-label">دامنه کار</span>
-              <span className="calc-field-value">{scopeLabel}</span>
+          <div className="flex flex-col gap-3">
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="text-sm font-semibold text-[var(--foreground)]">دامنه کار</span>
+              <span className="text-sm font-semibold tabular-nums text-[var(--oak)]">{scopeLabel}</span>
             </div>
             <input
               type="range"
@@ -100,23 +100,24 @@ export default function Calculator() {
               style={{ "--fill": `${scopePct}%` } as React.CSSProperties}
               aria-label="دامنه کار"
             />
-            <div className="calc-slider-ticks">
+            <div className="flex justify-between text-xs text-[var(--concrete)]" style={{ marginTop: "-4px" }}>
               <span>ترمیم جزئی</span>
               <span>طراحی مجدد</span>
             </div>
           </div>
 
           {/* Style selector */}
-          <div className="calc-field">
-            <span className="calc-field-label calc-field-label--block">سبک طراحی</span>
-            <div className="calc-radios">
+          <div className="flex flex-col gap-3">
+            <span className="text-sm font-semibold text-[var(--foreground)] mb-1">سبک طراحی</span>
+            <div className="flex gap-3">
               {styles.map((s) => (
                 <label
                   key={s.id}
-                  className={`calc-radio ${styleId === s.id ? "calc-radio--active" : ""}`}
+                  className={`flex items-center gap-2.5 p-3 px-[18px] rounded-[20px] cursor-pointer transition-all duration-200 flex-1 ${styleId === s.id ? "border-[var(--oak)] bg-[rgba(179,140,96,0.06)]" : "hover:border-[#C8C4BF] bg-transparent"}`}
+                  style={{ border: `1.5px solid ${styleId === s.id ? "var(--oak)" : "#E0DDD8"}` }}
                 >
-                  <span className="calc-radio-circle">
-                    {styleId === s.id && <span className="calc-radio-dot" />}
+                  <span className="w-[18px] h-[18px] rounded-full shrink-0 transition-colors duration-200 flex items-center justify-center" style={{ border: `2px solid ${styleId === s.id ? "var(--oak)" : "#C8C4BF"}` }}>
+                    {styleId === s.id && <span className="w-2 h-2 rounded-full bg-[var(--oak)]" />}
                   </span>
                   <input
                     type="radio"
@@ -124,9 +125,9 @@ export default function Calculator() {
                     value={s.id}
                     checked={styleId === s.id}
                     onChange={() => setStyleId(s.id)}
-                    className="calc-radio-input"
+                    className="absolute w-px h-px p-0 m-[-1px] overflow-hidden whitespace-nowrap clip-[rect(0,0,0,0)] border-0"
                   />
-                  <span className="calc-radio-label">{s.label}</span>
+                  <span className="text-sm font-medium text-nowrap text-[var(--foreground)]">{s.label}</span>
                 </label>
               ))}
             </div>
@@ -134,32 +135,34 @@ export default function Calculator() {
         </div>
 
         {/* Right panel — result + lead form */}
-        <div className="calc-result">
-          <span className="calc-result-label">برآورد هزینه</span>
-          <div className="calc-result-price">
+        <div className="w-[424px] shrink-0 p-10 flex flex-col justify-center bg-[var(--matte-slate)]">
+          <span className="text-xs font-semibold tracking-[1.5px] uppercase mb-3 text-[var(--oak)]">برآورد هزینه</span>
+          <div className="text-[36px] font-semibold leading-[1.15] tracking-tight mb-4 tabular-nums text-[var(--off-white)]">
             {formatPrice(estimate.low)} – {formatPrice(estimate.high)}
           </div>
-          <p className="calc-result-note">
+          <p className="text-[13px] leading-[1.55] m-0 mb-7" style={{ color: "rgba(246,244,241,0.5)" }}>
             این برآورد بر اساس میانگین هزینه متریال و نیروی کار محاسبه شده.
             قیمت نهایی پس از بازدید حضوری اعلام می‌شود.
           </p>
 
           {/* Lead capture form */}
-          <form className="calc-lead-form" onSubmit={(e) => e.preventDefault()}>
+          <form className="flex flex-col gap-2.5 mt-5 pt-5" style={{ borderTop: "1px solid rgba(246,244,241,0.1)" }} onSubmit={(e) => e.preventDefault()}>
             <input
               type="text"
               placeholder="نام و نام خانوادگی"
-              className="calc-lead-input"
+              className="w-full h-11 px-4 text-sm outline-none transition-colors duration-200 rounded-xl font-[var(--font-persian)] text-[var(--off-white)] bg-black/25 placeholder:text-[rgba(246,244,241,0.35)] focus:border-[var(--oak)]"
+              style={{ border: "1.5px solid rgba(246,244,241,0.1)" }}
               required
             />
             <input
               type="tel"
               placeholder="شماره تماس"
-              className="calc-lead-input"
+              className="w-full h-11 px-4 text-sm outline-none transition-colors duration-200 rounded-xl font-[var(--font-persian)] text-[var(--off-white)] bg-black/25 placeholder:text-[rgba(246,244,241,0.35)] focus:border-[var(--oak)]"
+              style={{ border: "1.5px solid rgba(246,244,241,0.1)" }}
               dir="ltr"
               required
             />
-            <button type="submit" className="calc-lead-btn">
+            <button type="submit" className="w-full h-11 text-sm font-semibold rounded-xl cursor-pointer transition-all duration-200 font-[var(--font-persian)] text-[var(--matte-slate)] bg-[var(--oak)] border-none hover:bg-[var(--oak-hover)] hover:-translate-y-px active:translate-y-0 focus-visible:outline-2 focus-visible:outline-[var(--off-white)] focus-visible:outline-offset-2">
               مشاوره رایگان
             </button>
           </form>
