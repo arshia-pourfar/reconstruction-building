@@ -124,6 +124,11 @@ export default function Navbar() {
 
         {/* ── Center: Nav Links ── */}
         <nav className="flex-1 flex items-center justify-center gap-1">
+          {/* خانه */}
+          <Link href="/" className="text-[14px] font-medium text-white no-underline px-4 py-2 rounded-full transition-colors duration-200 hover:bg-white/10" style={{ fontFamily: "var(--font-persian)" }}>
+            خانه
+          </Link>
+
           {/* خدمات — with mega trigger */}
           <div className="relative" ref={megaRef} onMouseEnter={openMega} onMouseLeave={closeMega}>
             <button
@@ -191,8 +196,9 @@ export default function Navbar() {
               </div>
             )}
           </div>
-          {/* خانه */}
-          {navLinks.map((link) => (
+
+          {/* Remaining nav links */}
+          {navLinks.filter((l) => l.href !== "/").map((link) => (
             <Link key={link.href} href={link.href} className="text-[14px] font-medium text-white no-underline px-4 py-2 rounded-full transition-colors duration-200 hover:bg-white/10" style={{ fontFamily: "var(--font-persian)" }}>
               {link.label}
             </Link>

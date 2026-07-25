@@ -69,7 +69,7 @@ const materials = [
 
 export default function ServicesMaterialGrid() {
   return (
-    <section className="w-full" style={{ padding: "var(--section-pad) var(--side-pad)", background: "var(--warm-gray)" }}>
+    <section className="w-full" style={{ padding: "var(--section-pad) var(--side-pad)", background: "var(--off-white)" }}>
       <div className="mx-auto max-w-[var(--container-max)]">
         {/* Services grid */}
         <div className="flex flex-col items-center" style={{ marginBottom: "var(--heading-gap)" }}>
