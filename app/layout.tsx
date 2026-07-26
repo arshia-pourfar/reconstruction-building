@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
+import ScrollProvider from "./components/ScrollProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -21,8 +22,10 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col" style={{ fontFamily: "var(--font-persian), var(--font-body)" }}>
-        <Navbar />
-        {children}
+        <ScrollProvider>
+          <Navbar />
+          {children}
+        </ScrollProvider>
       </body>
     </html>
   );

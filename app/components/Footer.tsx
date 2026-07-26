@@ -22,34 +22,31 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-[var(--matte-slate)] pt-20 pb-10" style={{ paddingLeft: "var(--side-pad)", paddingRight: "var(--side-pad)" }}>
-      <div className="max-w-[var(--container-max)] mx-auto" dir="rtl">
-        {/* Top row — 4 columns */}
-        <div className="grid gap-12 [grid-template-columns:1.6fr_1fr_1fr_1.4fr]">
-          {/* Column 1: Brand */}
-          <div className="flex flex-col gap-3">
-            <Link href="/" className="text-[22px] font-bold tracking-tight no-underline mb-1 text-[var(--off-white)]">
-              <span style={{ color: "var(--off-white)" }}>RENO</span>
-              <span style={{ color: "var(--blue-cta)" }}>3D</span>
+    <footer className="footer">
+      <div className="footer-inner">
+        <div className="footer-columns">
+          <div className="footer-brand">
+            <Link href="/" className="footer-logo">
+              <span>RENO</span>
+              <span className="text-[var(--blue-cta)]">3D</span>
             </Link>
-            <p className="text-sm leading-[1.6] m-0 text-[var(--concrete)]">
+            <p className="footer-tagline">
               استودیو طراحی و بازسازی سه‌بعدی خانه شما
             </p>
-            <a href="mailto:info@bazsazi-no.ir" className="text-sm font-medium no-underline transition-colors duration-200 text-[var(--oak)] hover:text-[var(--oak-hover)]">
+            <a href="mailto:info@bazsazi-no.ir" className="footer-email">
               info@bazsazi-no.ir
             </a>
-            <a href="tel:+989121234567" className="text-sm font-medium no-underline transition-colors duration-200 text-[var(--off-white)] hover:text-[rgba(246,244,241,0.8)]">
+            <a href="tel:+989121234567" className="footer-phone">
               ۰۹۱۲-۱۲۳-۴۵۶۷
             </a>
           </div>
 
-          {/* Column 2: Studio */}
-          <div className="flex flex-col">
-            <h4 className="text-xs font-semibold tracking-[1.5px] uppercase m-0 mb-5 text-[var(--oak)]">استودیو</h4>
-            <ul className="list-none m-0 p-0 flex flex-col gap-3.5">
+          <div className="footer-col">
+            <h4 className="footer-col-title">استودیو</h4>
+            <ul className="footer-links">
               {studioLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm font-normal no-underline transition-colors duration-200 text-[var(--concrete)] hover:text-[var(--off-white)]">
+                  <Link href={link.href} className="footer-link">
                     {link.label}
                   </Link>
                 </li>
@@ -57,13 +54,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Services */}
-          <div className="flex flex-col">
-            <h4 className="text-xs font-semibold tracking-[1.5px] uppercase m-0 mb-5 text-[var(--oak)]">خدمات</h4>
-            <ul className="list-none m-0 p-0 flex flex-col gap-3.5">
+          <div className="footer-col">
+            <h4 className="footer-col-title">خدمات</h4>
+            <ul className="footer-links">
               {serviceLinks.map((link, i) => (
                 <li key={i}>
-                  <Link href={link.href} className="text-sm font-normal no-underline transition-colors duration-200 text-[var(--concrete)] hover:text-[var(--off-white)]">
+                  <Link href={link.href} className="footer-link">
                     {link.label}
                   </Link>
                 </li>
@@ -71,13 +67,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Social */}
-          <div className="flex flex-col">
-            <h4 className="text-xs font-semibold tracking-[1.5px] uppercase m-0 mb-5 text-[var(--oak)]">شبکه‌های اجتماعی</h4>
-            <ul className="list-none m-0 p-0 flex flex-col gap-3.5">
+          <div className="footer-col">
+            <h4 className="footer-col-title">شبکه‌های اجتماعی</h4>
+            <ul className="footer-links">
               {socialLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-sm font-normal no-underline transition-colors duration-200 text-[var(--concrete)] hover:text-[var(--off-white)]" target="_blank" rel="noopener noreferrer">
+                  <a href={link.href} className="footer-link" target="_blank" rel="noopener noreferrer">
                     {link.label}
                   </a>
                 </li>
@@ -86,20 +81,18 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="w-full h-px my-12 mb-7" style={{ background: "rgba(246,244,241,0.1)" }} />
+        <div className="footer-divider" />
 
-        {/* Bottom row */}
-        <div className="flex items-center justify-between">
-          <span className="text-[13px] text-[var(--concrete)]">
+        <div className="footer-bottom">
+          <span className="footer-copyright">
             © ۲۰۲۶ بازسازی نو. تمامی حقوق محفوظ است.
           </span>
-          <div className="flex items-center gap-2">
-            <Link href="/rules" className="text-[13px] no-underline transition-colors duration-200 text-[var(--concrete)] hover:text-[var(--off-white)]">
+          <div className="footer-legal">
+            <Link href="/rules" className="footer-legal-link">
               سیاست حریم خصوصی
             </Link>
-            <span className="text-[13px]" style={{ color: "rgba(138,138,130,0.5)" }}>·</span>
-            <Link href="/rules" className="text-[13px] no-underline transition-colors duration-200 text-[var(--concrete)] hover:text-[var(--off-white)]">
+            <span className="footer-legal-sep">·</span>
+            <Link href="/rules" className="footer-legal-link">
               شرایط استفاده
             </Link>
           </div>

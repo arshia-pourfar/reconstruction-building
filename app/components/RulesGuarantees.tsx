@@ -1,3 +1,5 @@
+"use client";
+
 const guarantees = [
   {
     title: "تحویل به موقع",
@@ -32,21 +34,26 @@ const guarantees = [
 
 export default function RulesGuarantees() {
   return (
-    <section className="w-full bg-[var(--off-white)]" style={{ padding: "var(--section-pad) var(--side-pad)", maxWidth: "var(--container-max)", margin: "0 auto" }}>
-      <div className="mx-auto max-w-[var(--container-max)]">
-        <div className="flex flex-col items-center" style={{ marginBottom: "var(--heading-gap)" }}>
-          <div className="inline-flex items-center h-8 px-[18px] rounded-full mb-6 bg-[var(--matte-slate)]">
-            <span className="text-xs font-semibold tracking-[1.5px] uppercase text-[var(--oak)]">ضمانت‌ها</span>
+    <section className="trust-section">
+      <div className="trust-inner">
+        <div data-aos="fade-up" className="trust-header">
+          <div className="eyebrow">
+            <span className="eyebrow-text">ضمانت‌ها</span>
           </div>
-          <h2 className="text-[40px] font-semibold leading-[1.15] tracking-tight text-center mb-4 text-[var(--foreground)]">تعهدات و ضمانت‌نامه</h2>
+          <h2 className="section-headline">تعهدات و ضمانت‌نامه</h2>
         </div>
 
-        <div className="grid gap-6 grid-cols-3">
-          {guarantees.map((g) => (
-            <div key={g.title} className="flex flex-col items-center text-center p-9 rounded-[20px] transition-transform duration-300 hover:-translate-y-1" style={{ background: "rgba(255,255,255,0.5)", backdropFilter: "blur(12px)", border: "1px solid rgba(255,255,255,0.6)", boxShadow: "0 20px 48px rgba(0,0,0,0.08)" }}>
-              <div className="flex items-center justify-center w-14 h-14 rounded-[14px] mb-5" style={{ background: "rgba(37,99,235,0.06)", color: "var(--blue-cta)" }}>{g.icon}</div>
-              <h3 className="text-lg font-bold m-0 mb-2.5 text-[var(--foreground)]">{g.title}</h3>
-              <p className="text-sm leading-[1.65] m-0 text-[var(--concrete)]">{g.desc}</p>
+        <div data-aos="fade-up" data-aos-delay="100" className="trust-grid">
+          {guarantees.map((g, i) => (
+            <div
+              key={g.title}
+              data-aos="fade-up"
+              data-aos-delay={200 + (i + 1) * 80}
+              className="trust-card"
+            >
+              <div className="trust-card-icon">{g.icon}</div>
+              <h3 className="trust-card-title">{g.title}</h3>
+              <p className="trust-card-desc">{g.desc}</p>
             </div>
           ))}
         </div>
