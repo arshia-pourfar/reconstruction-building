@@ -114,7 +114,7 @@ export default function Navbar() {
       <header
         dir="rtl"
         className={`fixed top-5 left-1/2 -translate-x-1/2 z-[100] flex items-center px-5 py-2.5 rounded-2xl transition-all duration-300 w-[calc(100%-48px)] max-w-[1200px] ${
-          scrolled ? "bg-[rgba(27,29,31,0.75)] shadow-[0_8px_32px_rgba(0,0,0,0.2)]" : "bg-[rgba(27,29,31,0.35)]"
+          scrolled ? "bg-[rgba(var(--matte-slate-rgb),0.75)] shadow-[0_8px_32px_rgba(var(--border-rgb),0.2)]" : "bg-[rgba(var(--matte-slate-rgb),0.35)]"
         }`}
         style={{ backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)", border: "1px solid rgba(255,255,255,0.06)" }}
       >
@@ -143,7 +143,7 @@ export default function Navbar() {
               <div
                 className="absolute top-[calc(100%+10px)] right-0 w-[860px] p-5 rounded-2xl z-[200]"
                 style={{
-                  background: "rgba(27,29,31,0.88)",
+                  background: "rgba(var(--matte-slate-rgb),0.88)",
                   backdropFilter: "blur(40px)",
                   WebkitBackdropFilter: "blur(40px)",
                   border: "1px solid rgba(255,255,255,0.08)",
@@ -217,7 +217,7 @@ export default function Navbar() {
           className="fixed z-[99] left-1/2 -translate-x-1/2 flex flex-col gap-1 p-3 rounded-2xl lg:hidden"
           style={{
             top: "84px", width: "calc(100% - 48px)", maxWidth: "400px",
-            background: "rgba(27,29,31,0.9)", backdropFilter: "blur(40px)", WebkitBackdropFilter: "blur(40px)",
+            background: "rgba(var(--matte-slate-rgb),0.9)", backdropFilter: "blur(40px)", WebkitBackdropFilter: "blur(40px)",
             border: "1px solid rgba(255,255,255,0.06)", boxShadow: "0 24px 64px rgba(0,0,0,0.4)",
           }}
         >
@@ -243,7 +243,7 @@ export default function Navbar() {
           className="fixed z-[200] left-1/2 -translate-x-1/2 w-[400px] p-7 rounded-2xl"
           style={{
             top: "50%", transform: "translate(-50%, -50%)",
-            background: "rgba(27,29,31,0.92)", backdropFilter: "blur(40px)", WebkitBackdropFilter: "blur(40px)",
+            background: "rgba(var(--matte-slate-rgb),0.92)", backdropFilter: "blur(40px)", WebkitBackdropFilter: "blur(40px)",
             border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 32px 80px rgba(0,0,0,0.5)",
             animation: "modal-in 0.25s cubic-bezier(0.22,1,0.36,1)",
           }}

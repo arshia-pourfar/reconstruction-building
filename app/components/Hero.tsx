@@ -26,7 +26,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative w-full h-screen overflow-hidden bg-[var(--matte-slate)]">
+    <section ref={containerRef} className="relative w-full h-screen overflow-hidden bg-[var(--matte-slate)] group">
       {/* Background gradient */}
       <div className="absolute inset-0 z-0" style={{
         background: "radial-gradient(ellipse 70% 60% at 25% 50%, rgba(179,140,96,0.08), transparent 60%), radial-gradient(ellipse 40% 40% at 80% 30%, rgba(0,0,0,0.3), transparent), linear-gradient(160deg, #2A2520, #1B1D1F 35%, #141516 70%, #0F1011)",
@@ -39,42 +39,50 @@ export default function Hero() {
 
       {/* Dark gradient overlay for text readability */}
       <div className="absolute inset-0 z-[2]" style={{
-        background: "linear-gradient(135deg, rgba(27,29,31,0.55) 0%, rgba(27,29,31,0.25) 50%, transparent 80%)",
+        background: "linear-gradient(135deg, rgba(var(--matte-slate-rgb),0.55) 0%, rgba(var(--matte-slate-rgb),0.25) 50%, transparent 80%)",
         pointerEvents: "none",
       }} />
 
       {/* Text overlay — pointer-events: none so the slider drag handle works through it */}
-      <div className="absolute bottom-0 right-0 z-[3] w-full pointer-events-none" style={{ padding: "clamp(32px, 6vw, 80px) clamp(20px, 5vw, 64px)" }}>
-        <div className="max-w-[580px] mr-auto">
+      <div className="absolute inset-y-0 right-0 z-[3] w-full pointer-events-none flex items-center" style={{ padding: "clamp(32px, 6vw, 80px) clamp(20px, 5vw, 64px)" }}>
+        {/* Glass card behind text — fades out on section hover */}
+        <div className="absolute -inset-6 rounded-2xl opacity-100 transition-all duration-500 group-hover:opacity-0 pointer-events-none" style={{ background: "rgba(27,29,31,0.35)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", border: "1px solid rgba(246,244,241,0.08)" }} />
+        <div className="max-w-[580px] mr-auto relative">
           <div data-anim className="hero-v2-eyebrow pointer-events-auto" style={{ marginBottom: "16px" }}>
             <span className="hero-v2-eyebrow-dot animate-pulse" />
             <span>بازسازی سه‌بعدی تعاملی</span>
           </div>
 
-          <h1 data-anim className="hero-v2-headline pointer-events-auto" style={{ fontSize: "clamp(28px, 4.5vw, 52px)", marginBottom: "16px" }}>
-            طراحی و بازسازی مدرن
+          <h1 data-anim className="hero-v2-headline pointer-events-auto" style={{ fontSize: "clamp(32px, 5vw, 56px)", marginBottom: "20px" }}>
+            خانه‌ای که همیشه
             <br />
-            خانه شما
+            خواسته‌اید، همین الآن
+            <br />
+            بسازید
           </h1>
 
-          <p data-anim className="hero-v2-sub pointer-events-auto" style={{ marginBottom: "24px" }}>
-            با تجربه اسکرول سه‌بعدی، فضای رویایی خود را زندگی کنید.
+          <p data-anim className="hero-v2-sub pointer-events-auto" style={{ marginBottom: "32px", maxWidth: "420px" }}>
+            از طراحی سه‌بعدی تا اجرای نهایی — هر مرحله از بازسازی خانه شما با دقت و هنر تیم ما همراه است.
           </p>
 
           <div data-anim className="flex items-center gap-4 flex-wrap pointer-events-auto">
-            <a href="/contact" className="hero-v2-cta">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            <a href="/projects" className="btn-primary pointer-events-auto" style={{ padding: "0 32px", height: "50px", fontSize: "15px" }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <polyline points="21 15 16 10 5 21" />
+              </svg>
+              مشاهده پروژه‌ها
+            </a>
+            <a href="/contact" className="btn-ghost pointer-events-auto" style={{ padding: "0 28px", height: "50px", fontSize: "15px" }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
               </svg>
               مشاوره رایگان
             </a>
-
-            <a href="/projects" className="inline-flex items-center gap-2 h-[48px] px-6 text-sm font-medium rounded-full transition-all duration-200 text-white/70 hover:text-white border border-white/[0.12] hover:border-white/25 hover:bg-white/[0.05] pointer-events-auto" style={{ fontFamily: "var(--font-persian)" }}>
-              مشاهده پروژه‌ها
-            </a>
           </div>
 
-          <div data-anim className="hero-v2-trust pointer-events-auto" style={{ marginTop: "32px" }}>
+          <div data-anim className="hero-v2-trust pointer-events-auto" style={{ marginTop: "40px" }}>
             <div className="hero-v2-trust-item">
               <span className="hero-v2-trust-num">۱۵۰+</span>
               <span className="hero-v2-trust-label">پروژه موفق</span>
@@ -91,6 +99,15 @@ export default function Hero() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[5] flex flex-col items-center gap-2 pointer-events-none animate-bounce">
+        <span className="text-[11px] font-medium tracking-[2px] uppercase" style={{ color: "rgba(var(--off-white-rgb),0.3)" }}>SCROLL</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(var(--off-white-rgb),0.3)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M7 13l5 5 5-5" />
+          <path d="M7 6l5 5 5-5" />
+        </svg>
       </div>
 
       {/* Bottom fade for clean transition to next section */}

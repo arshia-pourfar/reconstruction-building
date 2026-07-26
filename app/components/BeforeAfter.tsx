@@ -40,7 +40,7 @@ export default function BeforeAfter({
     if (!frameRef.current) return;
     const rect = frameRef.current.getBoundingClientRect();
     const x = clientX - rect.left;
-    const pct = Math.max(10, Math.min(90, (x / rect.width) * 100));
+    const pct = Math.max(5, Math.min(95, (x / rect.width) * 100));
     setSplitPos(pct);
   }, []);
 
@@ -75,14 +75,8 @@ export default function BeforeAfter({
   const displayTags = isFullscreen ? [] : tags;
   const effectiveHeight = isFullscreen ? "100%" : height;
   const effectiveRadius = isFullscreen ? "0" : radius;
-  const effectiveBorder = isFullscreen ? "none" : (border || "1px solid rgba(246,244,241,0.08)");
+  const effectiveBorder = isFullscreen ? "none" : (border || "1px solid rgba(var(--off-white-rgb),0.08)");
   const labelPos = isFullscreen ? "absolute bottom-6" : (isHero ? "absolute bottom-4" : "absolute top-5");
-  const labelBeforePos = isFullscreen
-    ? "right-[calc(50%+12px)]"
-    : (isHero ? "right-4" : "right-5");
-  const labelAfterPos = isFullscreen
-    ? "left-[calc(50%+12px)]"
-    : (isHero ? "left-4" : "left-5");
 
   return (
     <div
@@ -97,11 +91,11 @@ export default function BeforeAfter({
       onPointerUp={handlePointerUp}
       onPointerLeave={handlePointerUp}
     >
-      {/* Before side — on the right in RTL */}
+      {/* Before side — on the left */}
       <div
         className="absolute inset-0"
         style={{
-          clipPath: `inset(0 0 0 ${splitPos}%)`,
+          clipPath: `inset(0 ${100 - splitPos}% 0 0)`,
           zIndex: 2,
         }}
       >
@@ -114,8 +108,8 @@ export default function BeforeAfter({
           priority={isFullscreen}
         />
         <div
-          className={`${labelPos} ${labelBeforePos} inline-flex items-center gap-1.5 ${labelHeight} px-3.5 rounded-full ${labelText} z-[3] backdrop-blur-[8px]`}
-          style={{ background: "rgba(0,0,0,0.5)", color: "rgba(246,244,241,0.8)" }}
+          className={`${labelPos} ${isFullscreen ? "left-[calc(50%+12px)]" : isHero ? "left-4" : "left-5"} inline-flex items-center gap-1.5 ${labelHeight} px-3.5 rounded-full ${labelText} z-[3] backdrop-blur-[8px]`}
+          style={{ background: "rgba(0,0,0,0.5)", color: "rgba(var(--off-white-rgb),0.8)" }}
         >
           <span>قبل</span>
           <span className="opacity-40">—</span>
@@ -123,7 +117,7 @@ export default function BeforeAfter({
         </div>
       </div>
 
-      {/* After side — on the left in RTL */}
+      {/* After side — on the right */}
       <div className="absolute inset-0" style={{ zIndex: 1 }}>
         <Image
           src={afterSrc}
@@ -134,10 +128,10 @@ export default function BeforeAfter({
           priority={isFullscreen}
         />
         <div
-          className={`${labelPos} ${labelAfterPos} inline-flex items-center gap-1.5 ${labelHeight} px-3.5 rounded-full ${labelText} z-[3] backdrop-blur-[8px]`}
+          className={`${labelPos} ${isFullscreen ? "right-[calc(50%+12px)]" : isHero ? "right-4" : "right-5"} inline-flex items-center gap-1.5 ${labelHeight} px-3.5 rounded-full ${labelText} z-[3] backdrop-blur-[8px]`}
           style={{
-            background: "rgba(179,140,96,0.2)",
-            border: "1px solid rgba(179,140,96,0.3)",
+            background: "rgba(var(--oak-rgb),0.2)",
+            border: "1px solid rgba(var(--oak-rgb),0.3)",
             color: "var(--oak)",
           }}
         >
@@ -147,11 +141,11 @@ export default function BeforeAfter({
         </div>
       </div>
 
-      {/* Drag handle — positioned from the right in RTL */}
+      {/* Drag handle — standard LTR positioning */}
       <div
         className="absolute top-0 bottom-0 z-999 flex items-center justify-center cursor-ew-resize"
         style={{
-          right: `${splitPos}%`,
+          left: `${splitPos}%`,
           transform: "translateX(-50%)",
           width: handleWidth,
         }}
@@ -165,20 +159,20 @@ export default function BeforeAfter({
         aria-valuenow={Math.round(splitPos)}
         tabIndex={0}
         onKeyDown={(e) => {
-          if (e.key === "ArrowLeft") setSplitPos((p) => Math.min(90, p + 2));
-          if (e.key === "ArrowRight") setSplitPos((p) => Math.max(10, p - 2));
+          if (e.key === "ArrowLeft") setSplitPos((p) => Math.max(5, p - 2));
+          if (e.key === "ArrowRight") setSplitPos((p) => Math.min(95, p + 2));
         }}
       >
         <div
           className="absolute top-0 bottom-0 left-1/2 w-0.5 -translate-x-1/2"
-          style={{ background: "rgba(246,244,241,0.4)" }}
+          style={{ background: "rgba(var(--off-white-rgb),0.4)" }}
         />
         <div
           className="relative z-[2] flex items-center justify-center rounded-full transition-all duration-150 bg-[var(--off-white)] text-[var(--matte-slate)] hover:scale-[1.08] focus-visible:scale-[1.08]"
           style={{
             width: isHero || isFullscreen ? "40px" : "44px",
             height: isHero || isFullscreen ? "40px" : "44px",
-            boxShadow: "0 2px 10px rgba(0,0,0,0.3),0 0 0 3px rgba(246,244,241,0.12)",
+            boxShadow: "0 2px 10px rgba(0,0,0,0.3),0 0 0 3px rgba(var(--off-white-rgb),0.12)",
           }}
         >
           <svg width="15" height="15" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -188,26 +182,23 @@ export default function BeforeAfter({
         </div>
       </div>
 
-      {/* Material tags (hidden in fullscreen) — x mirrored for RTL */}
-      {displayTags.map((tag, i) => {
-        const tagPct = parseFloat(tag.x);
-        return (
+      {/* Material tags (hidden in fullscreen) */}
+      {displayTags.map((tag, i) => (
         <div
           key={i}
           className={`absolute z-[5] flex items-center ${tagSize} rounded-full pointer-events-none backdrop-blur-[8px]`}
           style={{
-            left: `${100 - tagPct}%`,
+            left: tag.x,
             top: tag.y,
             background: "rgba(0,0,0,0.5)",
-            border: "1px solid rgba(246,244,241,0.1)",
+            border: "1px solid rgba(var(--off-white-rgb),0.1)",
             transform: "translate(-50%, -50%)",
           }}
         >
-          <span className={`${dotSize} rounded-full shrink-0 bg-[var(--oak)] shadow-[0_0_0_3px_rgba(179,140,96,0.2)]`} />
+          <span className={`${dotSize} rounded-full shrink-0 bg-[var(--oak)] shadow-[0_0_0_3px_rgba(var(--oak-rgb),0.2)]`} />
           <span className="text-nowrap text-[var(--off-white)]">{tag.label}</span>
         </div>
-        );
-      })}
+      ))}
     </div>
   );
 }
