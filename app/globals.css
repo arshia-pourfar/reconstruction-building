@@ -1772,6 +1772,29 @@ body {
 }
 
 /* ══════════════════════════════════════════════════════════
+   SCROLL INDICATOR
+   ══════════════════════════════════════════════════════════ */
+
+@keyframes scroll-guide {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+@keyframes scroll-wheel {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(4px); opacity: 0.3; }
+}
+
+.scroll-guide { animation: scroll-guide 2.2s ease-in-out infinite; }
+.scroll-wheel { animation: scroll-wheel 2.2s ease-in-out infinite; }
+
+/* ══════════════════════════════════════════════════════════
+   GLASS CARD COLLAPSE (wall destruction effect)
+   ══════════════════════════════════════════════════════════ */
+
+
+
+/* ══════════════════════════════════════════════════════════
    REDUCED MOTION
    ══════════════════════════════════════════════════════════ */
 

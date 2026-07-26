@@ -113,7 +113,7 @@ export default function Navbar() {
     <>
       <header
         dir="rtl"
-        className={`fixed top-5 left-1/2 -translate-x-1/2 z-[100] flex items-center px-5 py-2.5 rounded-2xl transition-all duration-300 w-[calc(100%-48px)] max-w-[1200px] ${
+        className={`fixed top-5 left-1/2 -translate-x-1/2 z-100 flex items-center px-5 py-2.5 rounded-2xl transition-all duration-300 w-[calc(100%-48px)] max-w-300 ${
           scrolled ? "bg-[rgba(var(--matte-slate-rgb),0.75)] shadow-[0_8px_32px_rgba(var(--border-rgb),0.2)]" : "bg-[rgba(var(--matte-slate-rgb),0.35)]"
         }`}
         style={{ backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)", border: "1px solid rgba(255,255,255,0.06)" }}

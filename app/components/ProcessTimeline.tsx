@@ -52,7 +52,6 @@ const steps = [
   },
 ];
 
-const lineDotPositions = [12.5, 37.5, 62.5, 87.5];
 
 export default function ProcessTimeline() {
   const sectionRef = useRef<HTMLDivElement>(null);

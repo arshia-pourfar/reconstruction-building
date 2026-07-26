@@ -108,7 +108,7 @@ export default function BeforeAfter({
           priority={isFullscreen}
         />
         <div
-          className={`${labelPos} ${isFullscreen ? "left-[calc(50%+12px)]" : isHero ? "left-4" : "left-5"} inline-flex items-center gap-1.5 ${labelHeight} px-3.5 rounded-full ${labelText} z-[3] backdrop-blur-[8px]`}
+          className={`${labelPos} ${isFullscreen ? "left-[calc(50%+12px)]" : isHero ? "left-4" : "left-5"} inline-flex items-center gap-1.5 ${labelHeight} px-3.5 rounded-full ${labelText} z-3 backdrop-blur-sm`}
           style={{ background: "rgba(0,0,0,0.5)", color: "rgba(var(--off-white-rgb),0.8)" }}
         >
           <span>قبل</span>
@@ -128,7 +128,7 @@ export default function BeforeAfter({
           priority={isFullscreen}
         />
         <div
-          className={`${labelPos} ${isFullscreen ? "right-[calc(50%+12px)]" : isHero ? "right-4" : "right-5"} inline-flex items-center gap-1.5 ${labelHeight} px-3.5 rounded-full ${labelText} z-[3] backdrop-blur-[8px]`}
+          className={`${labelPos} ${isFullscreen ? "right-[calc(50%+12px)]" : isHero ? "right-4" : "right-5"} inline-flex items-center gap-1.5 ${labelHeight} px-3.5 rounded-full ${labelText} z-3 backdrop-blur-sm`}
           style={{
             background: "rgba(var(--oak-rgb),0.2)",
             border: "1px solid rgba(var(--oak-rgb),0.3)",
@@ -168,7 +168,7 @@ export default function BeforeAfter({
           style={{ background: "rgba(var(--off-white-rgb),0.4)" }}
         />
         <div
-          className="relative z-[2] flex items-center justify-center rounded-full transition-all duration-150 bg-[var(--off-white)] text-[var(--matte-slate)] hover:scale-[1.08] focus-visible:scale-[1.08]"
+          className="relative z-2 flex items-center justify-center rounded-full transition-all duration-150 bg-(--off-white) text-(--matte-slate) hover:scale-[1.08] focus-visible:scale-[1.08]"
           style={{
             width: isHero || isFullscreen ? "40px" : "44px",
             height: isHero || isFullscreen ? "40px" : "44px",
@@ -186,7 +186,7 @@ export default function BeforeAfter({
       {displayTags.map((tag, i) => (
         <div
           key={i}
-          className={`absolute z-[5] flex items-center ${tagSize} rounded-full pointer-events-none backdrop-blur-[8px]`}
+          className={`absolute z-5 flex items-center ${tagSize} rounded-full pointer-events-none backdrop-blur-sm`}
           style={{
             left: tag.x,
             top: tag.y,
@@ -195,8 +195,8 @@ export default function BeforeAfter({
             transform: "translate(-50%, -50%)",
           }}
         >
-          <span className={`${dotSize} rounded-full shrink-0 bg-[var(--oak)] shadow-[0_0_0_3px_rgba(var(--oak-rgb),0.2)]`} />
-          <span className="text-nowrap text-[var(--off-white)]">{tag.label}</span>
+          <span className={`${dotSize} rounded-full shrink-0 bg-(--oak) shadow-[0_0_0_3px_rgba(var(--oak-rgb),0.2)]`} />
+          <span className="text-nowrap text-(--off-white)">{tag.label}</span>
         </div>
       ))}
     </div>
