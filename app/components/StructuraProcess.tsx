@@ -2,33 +2,33 @@
 
 const STEPS = [
   {
-    number: "01",
-    title: "Consult",
+    number: "۰۱",
+    title: "مشاوره",
     description:
-      "We begin with a rigorous site analysis and feasibility study. Understanding your lifestyle and the site's structural potential is the foundation of our work.",
+      "با یک تحلیل دقیق سایت و مطالعه امکان‌سنجی شروع می‌کنیم. درک سبک زندگی شما و پتانسیل ساختاری سایت، پایه کار ماست.",
   },
   {
-    number: "02",
-    title: "Design",
+    number: "۰۲",
+    title: "طراحی",
     description:
-      "Technical precision meets creative vision. We produce detailed BIM models and material specifications that ensure every millimeter is accounted for.",
+      "دقت فنی با دید خلاقانه ترکیب می‌شود. ما مدل‌های BIM دقیق و مشخصات متریال تولید می‌کنیم تا هر میلی‌متر مشخص باشد.",
   },
   {
-    number: "03",
-    title: "Execute",
+    number: "۰۳",
+    title: "اجرا",
     description:
-      "Our construction teams operate with engineering discipline. We manage all structural logistics and artisanal finishing to deliver perfection on schedule.",
+      "تیم‌های ساخت ما با انضباط مهندسی عمل می‌کنند. تمام لجستیک ساختاری و نازک‌کاری را مدیریت می‌کنیم تا کمال را به موقع تحویل دهیم.",
   },
 ];
 
-export default function Process() {
+export default function StructuraProcess() {
   return (
     <section
       className="py-24 bg-primary text-on-primary relative overflow-hidden"
       id="process"
     >
       {/* Blueprint Grid Background */}
-      <div className="absolute inset-0 pointer-events-none opacity-10">
+      <div className="absolute inset-0 pointer-events-none opacity-5">
         <div
           className="absolute inset-0"
           style={{
@@ -43,7 +43,7 @@ export default function Process() {
             backgroundImage:
               "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
             backgroundSize: "400px 400px",
-            border: "1px solid rgba(255,255,255,0.2)",
+            border: "1px solid rgba(255,255,255,0.1)",
           }}
         />
       </div>
@@ -51,32 +51,31 @@ export default function Process() {
       <div className="max-w-[1440px] mx-auto px-4 md:px-16 relative z-10">
         {/* Header */}
         <div className="mb-20 reveal">
-          <span className="font-[family-name:var(--font-label-md)] text-[14px] leading-5 tracking-[0.05em] text-secondary-fixed-dim uppercase">
-            Workflow
+          <span className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-secondary-fixed-dim">
+            گردش کار
           </span>
-          <h2 className="font-[family-name:var(--font-headline-lg)] text-[24px] md:text-[40px] leading-[32px] md:leading-[48px] tracking-[-0.01em] font-bold mt-4">
-            The Blueprint to Reality
+          <h2 className="font-[family-name:var(--font-vazirmatn)] text-[24px] md:text-[40px] leading-[36px] md:leading-[56px] font-extrabold mt-4">
+            نقشه راه تا واقعیت
           </h2>
         </div>
 
         {/* Steps */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-          {STEPS.map((step, i) => (
+          {STEPS.map((step) => (
             <div
               key={step.number}
-              className="step-card border-l border-on-primary-container/20 pl-8 py-8 transition-all duration-500"
-              data-step={i + 1}
+              className="step-card border-r border-on-primary-container/20 pr-8 py-8 transition-all duration-500"
             >
-              <div className="font-[family-name:var(--font-display-lg)] text-[32px] md:text-[64px] leading-[72px] tracking-[-0.02em] font-extrabold text-secondary opacity-50 mb-4">
+              <div className="font-[family-name:var(--font-vazirmatn)] text-[32px] md:text-[64px] leading-[48px] md:leading-[72px] font-extrabold text-secondary opacity-50 mb-4">
                 {step.number}
               </div>
-              <h3 className="font-[family-name:var(--font-headline-md)] text-[24px] leading-[32px] font-bold mb-6 uppercase">
+              <h3 className="font-[family-name:var(--font-vazirmatn)] text-[24px] leading-[36px] font-extrabold mb-6">
                 {step.title}
               </h3>
-              <p className="font-[family-name:var(--font-body-lg)] text-[18px] leading-[28px] text-on-primary-container">
+              <p className="font-[family-name:var(--font-vazirmatn)] text-[18px] leading-[28px] text-on-primary-container">
                 {step.description}
               </p>
-              <div className="mt-8 h-px bg-secondary w-20" />
+              <div className="mt-8 h-px bg-on-primary-container/20 w-20" />
             </div>
           ))}
         </div>

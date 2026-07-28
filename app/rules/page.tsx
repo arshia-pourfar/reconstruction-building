@@ -2,91 +2,106 @@
 
 import { useState, useCallback } from "react";
 import Link from "next/link";
-import Footer from "../components/Footer";
+import StructuraFooter from "../components/StructuraFooter";
 
 const sections = [
   {
     id: "project-process",
-    chip: "Project Process",
-    title: "Project Process",
+    chip: "فرآیند پروژه",
+    title: "فرآیند پروژه",
     content: {
       intro:
-        "Every RENO3D project follows a structured four-phase process designed to keep timelines tight and expectations aligned.",
+        "هر پروژه استراکچرا از یک فرآیند ساختاریافته چهار مرحله‌ای پیروی می‌کند که برای حفظ زمان‌بندی دقیق و هم‌راستایی انتظارات طراحی شده است.",
       steps: [
-        { label: "Consultation", desc: "We visit your space, discuss your vision, and define scope, budget, and timeline." },
-        { label: "3D Concept", desc: "Our designers create photorealistic 3D renders of your proposed renovation for review." },
-        { label: "Approval", desc: "You review the concept, request revisions if needed, and sign off on the final design." },
-        { label: "Build", desc: "Our construction team executes the approved plan with weekly progress updates." },
+        {
+          label: "مشاوره",
+          desc: "فضای شما را بازدید می‌کنیم، دیدگاهتان را بررسی کرده و محدوده کار، بودجه و زمان‌بندی را تعریف می‌کنیم.",
+        },
+        {
+          label: "کانسپت سه‌بعدی",
+          desc: "تیم طراحی ما رندرهای سه‌بعدی واقع‌گرایانه از بازسازی پیشنهادی شما برای بررسی ایجاد می‌کند.",
+        },
+        {
+          label: "تأیید",
+          desc: "کانسپت را بررسی کرده، در صورت نیاز اصلاحات درخواست می‌کنید و طرح نهایی را تأیید می‌کنید.",
+        },
+        {
+          label: "اجرا",
+          desc: "تیم ساخت ما طرح تأیید شده را با به‌روزرسانی‌های هفتگی پیشرفت اجرا می‌کند.",
+        },
       ],
     },
   },
   {
     id: "payments",
-    chip: "Payments",
-    title: "Payment Terms",
+    chip: "پرداخت‌ها",
+    title: "شرایط پرداخت",
     content: {
-      intro: "We keep payments milestone-based so you only pay as work is completed.",
+      intro:
+        "پرداخت‌ها بر اساس نقطه عطف است تا فقط در ازای تکمیل کار پرداخت کنید.",
       bullets: [
-        "30% deposit due upon signing the project agreement.",
-        "40% due after 3D concept approval and before construction begins.",
-        "20% due at the midpoint of the build phase.",
-        "10% final balance due upon project completion and walkthrough.",
+        "۳۰٪ پیش‌پرداخت هنگام امضای قرارداد پروژه.",
+        "۴۰٪ پس از تأیید کانسپت سه‌بعدی و قبل از شروع ساخت.",
+        "۲۰٪ در نیمه مرحله ساخت.",
+        "۱۰٪ مانده نهایی پس از تکمیل پروژه و بازدید نهایی.",
       ],
-      note: "All invoices are due within 14 days. Late payments incur a 1.5% monthly fee.",
+      note:
+        "تمام فاکتورها ظرف ۱۴ روز قابل پرداخت هستند. تأخیر در پرداخت شامل جریمه ماهانه ۱.۵٪ است.",
     },
   },
   {
     id: "revisions",
-    chip: "Revisions",
-    title: "3D Design Revisions",
+    chip: "اصلاحات",
+    title: "اصلاحات طراحی سه‌بعدی",
     content: {
-      intro: "We want you to love the design before a single wall is touched.",
+      intro:
+        "می‌خواهیم قبل از لمس یک دیوار، طرح را دوست داشته باشید.",
       bullets: [
-        "Two rounds of 3D revisions are included in every project at no extra cost.",
-        "Additional revision rounds are billed at $350 per round.",
-        "Major scope changes (new rooms, structural alterations) are quoted separately.",
-        "Revision turn-around is typically 3–5 business days.",
+        "دو دور اصلاحات سه‌بعدی در هر پروژه بدون هزینه اضافی شامل می‌شود.",
+        "دورهای اضافی با هزینه ۳۵۰ دلار به ازای هر دور صورتحساب می‌شود.",
+        "تغییرات اساسی محدوده (اتاق‌های جدید، تغییرات ساختاری) جداگانه قیمت‌گذاری می‌شود.",
+        "زمان اصلاحات معمولاً ۳ تا ۵ روز کاری است.",
       ],
     },
   },
   {
     id: "materials",
-    chip: "Materials & Sourcing",
-    title: "Materials & Sourcing",
+    chip: "متریال و تأمین",
+    title: "متریال و تأمین",
     content: {
-      intro: "Transparency on what's included and what's on you.",
+      intro: "شفافیت در مورد آنچه شامل می‌شود و آنچه بر عهده شماست.",
       bullets: [
-        "Standard material sourcing (tile, paint, basic fixtures) is included in our service fee.",
-        "Premium or specialty materials (imported stone, custom millwork) are quoted separately.",
-        "You're welcome to supply your own materials — we'll adjust the quote accordingly.",
-        "All material costs are passed through at cost with no markup.",
+        "تأمین متریال استاندارد (کاشی، رنگ، تجهیزات پایه) در خدمات ما شامل است.",
+        "متریال ممتاز یا تخصصی (سنگ وارداتی، نجاری سفارشی) جداگانه قیمت‌گذاری می‌شود.",
+        "می‌توانید متریال خود را تأمین کنید — قیمت بر اساس آن تنظیم می‌شود.",
+        "تمام هزینه‌های متریال بدون افزایش قیمت ارائه می‌شود.",
       ],
     },
   },
   {
     id: "cancellations",
-    chip: "Cancellations",
-    title: "Cancellation & Refund Policy",
+    chip: "لغو و بازپرداخت",
+    title: "سیاست لغو و بازپرداخت",
     content: {
-      intro: "Plans change. Here's how we handle them.",
+      intro: "برنامه‌ها تغییر می‌کنند. نحوه مدیریت ما:",
       bullets: [
-        "Cancellations before 3D concept delivery: full refund minus a $500 admin fee.",
-        "Cancellations after concept approval: deposit is non-refundable; milestone payments for completed work are retained.",
-        "Cancellations during the build phase: all completed work is billed; remaining prepaid amounts are refunded within 30 days.",
+        "لغو قبل از تحویل کانسپت سه‌بعدی: بازپرداخت کامل منهای ۵۰۰ دلار هزینه اداری.",
+        "لغو پس از تأیید کانسپت: پیش‌پرداخت غیرقابل بازپرداخت؛ پرداخت‌های نقطه عطف برای کار تکمیل شده حفظ می‌شود.",
+        "لغو در مرحله ساخت: تمام کار تکمیل شده صورتحساب می‌شود؛ مبالغ پیش‌پرداخت باقیمانده ظرف ۳۰ روز بازپرداخت می‌شود.",
       ],
     },
   },
   {
     id: "warranty",
-    chip: "Warranty",
-    title: "Warranty on Workmanship",
+    chip: "گارانتی",
+    title: "گارانتی کیفیت اجرا",
     content: {
-      intro: "We stand behind what we build.",
+      intro: "ما از کاری که می‌سازیم پشتیبانی می‌کنیم.",
       bullets: [
-        "All structural and finish work carries a 5-year workmanship warranty.",
-        "Plumbing and electrical work is covered for 3 years.",
-        "Warranty claims are assessed within 5 business days of submission.",
-        "Damage from misuse, unauthorized modifications, or normal wear is not covered.",
+        "تمام کارهای ساختاری و نازک‌کاری دارای گارانتی ۵ ساله هستند.",
+        "کارهای لوله‌کشی و برقی تا ۳ سال پوشش داده می‌شود.",
+        "ادعاهای گارانتی ظرف ۵ روز کاری پس از ارسال بررسی می‌شوند.",
+        "آسیب ناشی از سوءاستفاده، اصلاحات غیرمجاز یا استفاده عادی شامل گارانتی نمی‌شود.",
       ],
     },
   },
@@ -104,87 +119,150 @@ export default function RulesPage() {
   }, []);
 
   return (
-    <div className="rules-page">
-      {/* ── Header ──────────────────────────────────────── */}
-      <header className="rules-header">
-        <div className="eyebrow">
-          <span className="eyebrow-text">Studio Policies</span>
-        </div>
-        <h1 className="rules-headline">How We Work Together</h1>
-        <p className="rules-sub">
-          Clear terms, honest process — everything you should know before
-          starting a project with RENO3D.
-        </p>
-      </header>
+    <main className="pt-20">
+      {/* ═══ HERO ═══════════════════════════════════════ */}
+      <section
+        className="relative min-h-[400px] flex flex-col justify-center border-b border-outline-variant overflow-hidden"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, #e0e0e0 1px, transparent 1px), linear-gradient(to bottom, #e0e0e0 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      >
+        <div className="px-4 md:px-16 max-w-[1440px] mx-auto w-full py-24 relative">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="h-1 w-12 bg-secondary-container" />
+              <span className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-secondary-container">
+                سیاست‌های استودیو
+              </span>
+            </div>
 
-      {/* ── Chip Nav ────────────────────────────────────── */}
-      <nav className="rules-nav" aria-label="Section navigation">
-        <div className="rules-nav-inner">
-          {sections.map((s) => (
-            <button
-              key={s.id}
-              className={`rules-chip ${active === s.id ? "rules-chip--active" : ""}`}
-              onClick={() => handleChipClick(s.id)}
-            >
-              {s.chip}
-            </button>
-          ))}
+            <h1 className="font-[family-name:var(--font-vazirmatn)] text-[32px] md:text-[64px] leading-[48px] md:leading-[80px] font-extrabold text-primary mb-8">
+              چگونه با هم
+              <br />
+              کار می‌کنیم
+            </h1>
+
+            <p className="font-[family-name:var(--font-vazirmatn)] text-[18px] leading-[28px] text-on-surface-variant max-w-xl leading-relaxed">
+              شرایط شفاف، فرآیند صادقانه — هر آنچه باید قبل از شروع پروژه با
+              استراکچرا بدانید.
+            </p>
+          </div>
+        </div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-px bg-primary hidden md:block" />
+      </section>
+
+      {/* ═══ CHIP NAV ══════════════════════════════════ */}
+      <nav
+        className="py-8 border-b border-outline-variant bg-surface-container-lowest sticky top-20 z-30"
+        aria-label="ناوبری بخش‌ها"
+      >
+        <div className="px-4 md:px-16 max-w-[1440px] mx-auto">
+          <div className="flex flex-wrap gap-3">
+            {sections.map((s) => (
+              <button
+                key={s.id}
+                onClick={() => handleChipClick(s.id)}
+                className={`font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-5 py-2 border border-outline-variant rounded-xl transition-all ${
+                  active === s.id
+                    ? "bg-tertiary text-on-tertiary border-tertiary"
+                    : "bg-transparent text-on-surface hover:border-primary"
+                }`}
+              >
+                {s.chip}
+              </button>
+            ))}
+          </div>
         </div>
       </nav>
 
-      {/* ── Rule Sections ───────────────────────────────── */}
-      <div className="rules-content">
-        {sections.map((s, i) => (
-          <section
-            key={s.id}
-            id={s.id}
-            className={`rules-card ${i % 2 === 1 ? "rules-card--alt" : ""}`}
-          >
-            <div className="rules-card-num">
-              {String(i + 1).padStart(2, "0")}
-            </div>
-            <div className="rules-card-body">
-              <h2 className="rules-card-title">{s.title}</h2>
-              <p className="rules-card-intro">{s.content.intro}</p>
+      {/* ═══ RULE SECTIONS ═════════════════════════════ */}
+      <section className="py-24 bg-surface">
+        <div className="px-4 md:px-16 max-w-[1440px] mx-auto space-y-16">
+          {sections.map((s, i) => (
+            <div
+              key={s.id}
+              id={s.id}
+              className={`border border-outline-variant p-8 md:p-12 scroll-mt-40 rounded-2xl ${
+                i % 2 === 1 ? "bg-surface-container-low" : "bg-surface-bright"
+              }`}
+            >
+              <div className="flex items-start gap-6 mb-8">
+                <span className="font-[family-name:var(--font-vazirmatn)] text-[48px] leading-none font-black text-outline-variant">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h2 className="font-[family-name:var(--font-vazirmatn)] text-[24px] md:text-[32px] leading-[36px] md:leading-[48px] font-extrabold mb-4">
+                    {s.title}
+                  </h2>
+                  <p className="font-[family-name:var(--font-vazirmatn)] text-[16px] leading-[24px] text-on-surface-variant leading-relaxed mb-8">
+                    {s.content.intro}
+                  </p>
+                </div>
+              </div>
 
               {s.content.steps && (
-                <ol className="rules-steps">
-                  {s.content.steps.map((step) => (
-                    <li key={step.label} className="rules-step">
-                      <span className="rules-step-label">{step.label}</span>
-                      <span className="rules-step-desc">{step.desc}</span>
-                    </li>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+                  {s.content.steps.map((step, j) => (
+                    <div
+                      key={step.label}
+                      className="border-r-2 border-secondary-container pr-4"
+                    >
+                      <span className="font-[family-name:var(--font-vazirmatn)] text-[12px] leading-4 text-secondary-container block mb-2">
+                        مرحله {j + 1}
+                      </span>
+                      <h4 className="font-[family-name:var(--font-vazirmatn)] text-[16px] leading-[24px] font-bold mb-2">
+                        {step.label}
+                      </h4>
+                      <p className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-[22px] text-on-surface-variant leading-relaxed">
+                        {step.desc}
+                      </p>
+                    </div>
                   ))}
-                </ol>
+                </div>
               )}
 
               {s.content.bullets && (
-                <ul className="rules-bullets">
+                <ul className="space-y-3 mt-8">
                   {s.content.bullets.map((b) => (
-                    <li key={b}>{b}</li>
+                    <li
+                      key={b}
+                      className="flex items-start gap-3 font-[family-name:var(--font-vazirmatn)] text-[14px] leading-[22px] text-on-surface-variant"
+                    >
+                      <span className="w-2 h-2 bg-secondary-container mt-2 shrink-0" />
+                      {b}
+                    </li>
                   ))}
                 </ul>
               )}
 
               {s.content.note && (
-                <p className="rules-card-note">{s.content.note}</p>
+                <p className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-[22px] text-secondary-container mt-6 border-r-2 border-secondary-container pr-4">
+                  {s.content.note}
+                </p>
               )}
             </div>
-          </section>
-        ))}
-      </div>
+          ))}
+        </div>
+      </section>
 
-      {/* ── CTA Banner ──────────────────────────────────── */}
-      <section className="rules-cta">
-        <div className="rules-cta-inner">
-          <p className="rules-cta-text">Questions about our process?</p>
-          <Link href="/contact" className="btn-pill">
-            Talk to Our Team
+      {/* ═══ CTA ═══════════════════════════════════════ */}
+      <section className="bg-primary text-on-primary py-24">
+        <div className="px-4 md:px-16 max-w-[1440px] mx-auto text-center">
+          <p className="font-[family-name:var(--font-vazirmatn)] text-[18px] leading-[28px] text-on-primary-container mb-8">
+            سؤالی در مورد فرآیند ما دارید؟
+          </p>
+          <Link
+            href="/contact"
+            className="inline-block bg-tertiary text-on-tertiary rounded-xl px-8 py-4 font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-on-secondary-container hover:text-on-primary transition-all active:scale-95"
+          >
+            با تیم ما صحبت کنید
           </Link>
         </div>
       </section>
 
-      <Footer />
-    </div>
+      <StructuraFooter />
+    </main>
   );
 }

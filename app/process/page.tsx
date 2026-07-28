@@ -2,49 +2,49 @@ import StructuraFooter from "../components/StructuraFooter";
 
 const RULES = [
   {
-    code: "RULE_01",
-    title: "Structural Integrity",
+    code: "قانون_۰۱",
+    title: "یکپارچگی ساختاری",
     description:
-      "Every renovation begins with engineering excellence. We stabilize before we stylize, ensuring the bones of your home are built for the next century.",
+      "هر بازسازی با برتری مهندسی شروع می‌شود. قبل از زیباسازی تثبیت می‌کنیم و اطمینان حاصل می‌کنیم که استخوان‌های خانه شما برای قرن بعد ساخته شده است.",
   },
   {
-    code: "RULE_02",
-    title: "Material Honesty",
+    code: "قانون_۰۲",
+    title: "صداقت متریال",
     description:
-      "We celebrate raw steel, concrete, and timber. Authenticity is our finish of choice—we showcase the strength and texture of the elements that hold the space.",
+      "فولاد خام، بتن و چوب را جشن می‌گیریم. اصالت انتخاب پایان ماست—قوت و بافت عناصری را که فضا را نگه می‌دارند به نمایش می‌گذاریم.",
   },
   {
-    code: "RULE_03",
-    title: "Precision Engineering",
+    code: "قانون_۰۳",
+    title: "مهندسی دقیق",
     description:
-      "Millimeter-perfect execution is not a goal; it's our baseline. Our fabrication process uses high-spec modeling to ensure zero-tolerance fit and finish.",
+      "اجرای دقیق میلی‌متری نه هدف، بلکه خط مباست. فرآیند ساخت ما از مدل‌سازی با مشخصات بالا استفاده می‌کند.",
   },
 ];
 
 const STEPS = [
   {
-    number: "01",
-    title: "Structural Audit",
+    number: "۰۱",
+    title: "ممیزی ساختاری",
     description:
-      "Analyzing the site's bones through thermal imaging and structural scans. We identify load-bearing potential and hidden constraints.",
+      "تحلیل استخوان‌های سایت از طریق تصویربرداری حرارتی و اسکن‌های ساختاری. پتانسیل باربری و محدودیت‌های پنهان را شناسایی می‌کنیم.",
   },
   {
-    number: "02",
-    title: "Design Fabrication",
+    number: "۰۲",
+    title: "طراحی و ساخت",
     description:
-      "Drafting high-fidelity blueprints and 3D models. We simulate structural changes in a virtual environment before a single brick is moved.",
+      "تهیه نقشه‌های دقیق و مدل‌های سه‌بعدی. تغییرات ساختاری را در یک محیط مجازی شبیه‌سازی می‌کنیم.",
   },
   {
-    number: "03",
-    title: "Precision Deconstruction",
+    number: "۰۳",
+    title: "تخریب دقیق",
     description:
-      "Careful removal of dated elements. We surgical strip the space to its essence, salvaging historical materials where possible.",
+      "حذف دقیق عناصر قدیمی. فضا را با دقت جراحی به اصل آن برمی‌گردانیم.",
   },
   {
-    number: "04",
-    title: "Industrial Assembly",
+    number: "۰۴",
+    title: "مونتاژ صنعتی",
     description:
-      "Construction and final fit-out. We install pre-fabricated steel components and custom masonry with industrial-grade finish.",
+      "ساخت و نازک‌کاری نهایی. اجزای پیش‌ساخته فولادی و مasonry سفارشی را با پایان درجه صنعتی نصب می‌کنیم.",
   },
 ];
 
@@ -52,8 +52,7 @@ export default function ProcessPage() {
   return (
     <main className="pt-20">
       {/* ═══ HERO ═══════════════════════════════════════ */}
-      <section className="relative h-[70vh] flex items-center overflow-hidden border-b border-primary">
-        {/* Blueprint grid */}
+      <section className="relative h-[70vh] flex items-center overflow-hidden border-b border-outline-variant">
         <div
           className="absolute inset-0 opacity-10"
           style={{
@@ -62,7 +61,6 @@ export default function ProcessPage() {
             backgroundSize: "32px 32px",
           }}
         />
-        {/* Technical motifs */}
         <div className="absolute top-0 right-0 w-1/3 h-full border-l border-primary/20 pointer-events-none">
           <div className="absolute top-1/4 left-0 w-full h-px bg-primary/20" />
           <div className="absolute top-3/4 left-0 w-full h-px bg-primary/20" />
@@ -70,25 +68,25 @@ export default function ProcessPage() {
 
         <div className="container mx-auto px-4 md:px-16 max-w-[1440px] z-10">
           <div className="max-w-3xl">
-            <span className="font-[family-name:var(--font-label-md)] text-[14px] leading-5 text-secondary uppercase mb-4 block tracking-widest">
-              Phase 00 // Methodology
+            <span className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-secondary mb-4 block">
+              فاز ۰۰ // روش‌شناسی
             </span>
-            <h1 className="font-[family-name:var(--font-display-lg)] text-[32px] md:text-[64px] leading-[40px] md:leading-[72px] tracking-[-0.02em] font-extrabold mb-8">
-              THE STRUCTURA METHOD
+            <h1 className="font-[family-name:var(--font-vazirmatn)] text-[32px] md:text-[64px] leading-[48px] md:leading-[80px] font-extrabold mb-8">
+              روش ساختارا
             </h1>
-            <p className="font-[family-name:var(--font-body-lg)] text-[18px] leading-[28px] text-on-surface-variant max-w-xl mb-12">
-              Engineering precision meets architectural vision. We don&apos;t
-              just renovate; we re-engineer spaces from the core out,
-              celebrating the raw beauty of structural necessity.
+            <p className="font-[family-name:var(--font-vazirmatn)] text-[18px] leading-[28px] text-on-surface-variant max-w-xl mb-12">
+              دقت مهندسی با دید معماری ترکیب می‌شود. ما فقط بازسازی نمی‌کنیم؛
+              فضاها را از هسته بازآفرینی می‌کنیم و زیبایی خام ضرورت ساختاری را
+              جشن می‌گیریم.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 items-center">
               <button
-                className="bg-primary text-on-primary px-10 py-4 font-[family-name:var(--font-label-md)] text-[14px] leading-5 tracking-[0.05em] uppercase tracking-widest hover:bg-secondary transition-all"
-                style={{ boxShadow: "4px 4px 0px #000000" }}
+                className="bg-tertiary text-on-primary px-10 py-4 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-secondary transition-all"
+                style={{ boxShadow: "0 2px 8px rgba(99,102,241,0.15)" }}
               >
-                View Specs
+                مشاهده مشخصات
               </button>
-              <div className="flex items-center gap-4 text-primary font-[family-name:var(--font-label-md)] text-[14px] leading-5 tracking-[0.05em] uppercase py-4">
+              <div className="flex items-center gap-4 text-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 py-4">
                 <svg
                   width="24"
                   height="24"
@@ -99,7 +97,7 @@ export default function ProcessPage() {
                 >
                   <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                 </svg>
-                Technical Excellence Guaranteed
+                تضمین برتری فنی
               </div>
             </div>
           </div>
@@ -107,29 +105,29 @@ export default function ProcessPage() {
       </section>
 
       {/* ═══ CORE PRINCIPLES ═══════════════════════════ */}
-      <section className="py-24 border-b border-primary">
+      <section className="py-24 border-b border-outline-variant">
         <div className="container mx-auto px-4 md:px-16 max-w-[1440px]">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <h2 className="font-[family-name:var(--font-headline-lg)] text-[24px] md:text-[40px] leading-[32px] md:leading-[48px] tracking-[-0.01em] font-bold uppercase">
-              CORE
+            <h2 className="font-[family-name:var(--font-vazirmatn)] text-[24px] md:text-[40px] leading-[36px] md:leading-[56px] font-extrabold">
+              اصول
               <br />
-              PRINCIPLES
+              اصلی
             </h2>
-            <div className="w-full md:w-1/2 h-px bg-primary mb-4" />
+            <div className="w-full md:w-1/2 h-px bg-outline-variant mb-4" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-l border-t border-primary">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-r border-t border-outline-variant">
             {RULES.map((rule) => (
               <div
                 key={rule.code}
-                className="p-10 border-r border-b border-primary group hover:bg-surface-container-low transition-colors"
+                className="p-10 border-l border-b border-outline-variant rounded-2xl group hover:bg-surface-container-low transition-colors"
               >
-                <div className="text-secondary font-[family-name:var(--font-label-md)] text-[14px] leading-5 tracking-[0.05em] mb-8">
+                <div className="text-secondary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 mb-8">
                   {rule.code}
                 </div>
-                <h3 className="font-[family-name:var(--font-headline-md)] text-[24px] leading-[32px] font-bold mb-4 uppercase">
+                <h3 className="font-[family-name:var(--font-vazirmatn)] text-[24px] leading-[36px] font-extrabold mb-4">
                   {rule.title}
                 </h3>
-                <p className="font-[family-name:var(--font-body-md)] text-[16px] leading-[24px] text-on-surface-variant">
+                <p className="font-[family-name:var(--font-vazirmatn)] text-[16px] leading-[24px] text-on-surface-variant">
                   {rule.description}
                 </p>
                 <div className="mt-8 flex justify-end opacity-0 group-hover:opacity-100 transition-opacity">
@@ -156,45 +154,33 @@ export default function ProcessPage() {
       <section className="py-24 bg-surface-container-low">
         <div className="container mx-auto px-4 md:px-16 max-w-[1440px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-            {/* Left: Steps */}
             <div>
-              <span className="font-[family-name:var(--font-label-md)] text-[14px] leading-5 tracking-[0.05em] text-secondary uppercase mb-4 block tracking-widest">
-                Workflow Pipeline
+              <span className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-secondary mb-4 block">
+                خط لوله گردش کار
               </span>
-              <h2 className="font-[family-name:var(--font-headline-lg)] text-[24px] md:text-[40px] leading-[32px] md:leading-[48px] tracking-[-0.01em] font-bold uppercase mb-12">
-                STEPS TO
-                <br />
-                TRANSFORMATION
+              <h2 className="font-[family-name:var(--font-vazirmatn)] text-[24px] md:text-[40px] leading-[36px] md:leading-[56px] font-extrabold mb-12">
+                مراحل تبدیل
               </h2>
               <div className="space-y-12">
                 {STEPS.map((step, i) => (
                   <div
                     key={step.number}
-                    className="relative pl-16 group"
-                    style={
-                      i < STEPS.length - 1
-                        ? {
-                            position: "relative",
-                          }
-                        : undefined
-                    }
+                    className="relative pr-16 group"
                   >
-                    {/* Connector line */}
                     {i < STEPS.length - 1 && (
                       <div
-                        className="absolute left-5 top-10 bottom-[-24px] w-px bg-primary"
-                        style={{ left: "20px" }}
+                        className="absolute right-5 top-10 bottom-[-24px] w-px bg-outline-variant"
                       />
                     )}
                     <div
-                      className="absolute left-0 top-0 w-10 h-10 border border-primary bg-background flex items-center justify-center font-[family-name:var(--font-label-md)] text-[14px] leading-5 tracking-[0.05em] z-10 group-hover:bg-secondary group-hover:text-white transition-colors"
+                      className="absolute right-0 top-0 w-10 h-10 border border-outline-variant rounded-xl bg-background flex items-center justify-center font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 z-10 group-hover:bg-secondary group-hover:text-white transition-colors"
                     >
                       {step.number}
                     </div>
-                    <h4 className="font-[family-name:var(--font-headline-md)] text-[24px] leading-[32px] font-bold uppercase mb-2">
+                    <h4 className="font-[family-name:var(--font-vazirmatn)] text-[24px] leading-[36px] font-extrabold mb-2">
                       {step.title}
                     </h4>
-                    <p className="font-[family-name:var(--font-body-md)] text-[16px] leading-[24px] text-on-surface-variant">
+                    <p className="font-[family-name:var(--font-vazirmatn)] text-[16px] leading-[24px] text-on-surface-variant">
                       {step.description}
                     </p>
                   </div>
@@ -202,26 +188,24 @@ export default function ProcessPage() {
               </div>
             </div>
 
-            {/* Right: Image */}
             <div className="relative">
               <div
-                className="aspect-[4/5] bg-surface-container overflow-hidden border border-primary"
-                style={{ boxShadow: "4px 4px 0px #000000" }}
+                className="aspect-[4/5] bg-surface-container overflow-hidden rounded-2xl border border-outline-variant"
+                style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.08)" }}
               >
                 <img
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkP_JwtttTsf8FIRPKao9nqL6UykrluSRTqdDnDDnZtEZBUmn_5vC1v-VlTqBJq8QbFkkiLgScl498NmP3U5PMvvI2PGAIxKrAxvs9ss7mB-5ig5e8GBLqd9itjCiyLOl6GLvjpXGDiBrSYCKfE-QuqogzcvuPOideBaw5vpH7UejVDxLvlOHczoY0jFph1rKqJnOf5zfE02dBEWlgiDnX1xTci9egQ7XtuAcvBo9Peot6Vo9qGbl3LCNotH_uyzo2KBP5L9jiq-tG"
-                  alt="Structural reinforcement"
+                  alt="تقویت ساختاری"
                   className="w-full h-full object-cover grayscale-[50%] hover:grayscale-0 transition-all duration-700"
                 />
               </div>
-              {/* Overlay label */}
-              <div className="absolute -bottom-6 -left-6 bg-primary text-on-primary p-8 max-w-xs">
-                <div className="font-[family-name:var(--font-label-md)] text-[14px] leading-5 tracking-[0.05em] text-secondary mb-2">
-                  FIG_06A
+              <div className="absolute -bottom-6 -right-6 bg-tertiary text-on-primary p-8 max-w-xs rounded-2xl">
+                <div className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-secondary mb-2">
+                  شکل_۰۶A
                 </div>
-                <p className="font-[family-name:var(--font-body-md)] text-[14px] leading-[20px] leading-tight italic opacity-80">
-                  &quot;Structural reinforcement phase utilizing reinforced
-                  steel girders and lateral bracing systems.&quot;
+                <p className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-[20px] italic opacity-80">
+                  &quot;فاز تقویت ساختاری با استفاده از تیرهای فولادی تقویت
+                  شده و سیستم‌های براکتینگ جانبی.&quot;
                 </p>
               </div>
             </div>
@@ -230,21 +214,21 @@ export default function ProcessPage() {
       </section>
 
       {/* ═══ CTA ═══════════════════════════════════════ */}
-      <section className="py-24 border-y border-primary">
+      <section className="py-24 border-y border-outline-variant">
         <div className="container mx-auto px-4 md:px-16 max-w-[1440px] text-center">
-          <h2 className="font-[family-name:var(--font-display-lg)] text-[32px] md:text-[64px] leading-[40px] md:leading-[72px] tracking-[-0.02em] font-extrabold uppercase mb-8">
-            BUILD TO LAST
+          <h2 className="font-[family-name:var(--font-vazirmatn)] text-[32px] md:text-[64px] leading-[48px] md:leading-[80px] font-extrabold mb-8">
+            برای ماندن بسازید
           </h2>
-          <p className="font-[family-name:var(--font-body-lg)] text-[18px] leading-[28px] max-w-2xl mx-auto mb-12">
-            Ready to transform your space with engineering-first design? Start
-            your structural audit today.
+          <p className="font-[family-name:var(--font-vazirmatn)] text-[18px] leading-[28px] max-w-2xl mx-auto mb-12">
+            آماده تبدیل فضای خود با طراحی مبتنی بر مهندسی هستید؟ ممیزی
+            ساختاری خود را امروز شروع کنید.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <button className="bg-secondary text-white px-12 py-5 font-[family-name:var(--font-label-md)] text-[14px] leading-5 tracking-[0.05em] uppercase tracking-widest hover:bg-primary transition-all">
-              Start Consultation
+            <button className="bg-secondary text-white px-12 py-5 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-primary transition-all">
+              شروع مشاوره
             </button>
-            <button className="border border-primary text-primary px-12 py-5 font-[family-name:var(--font-label-md)] text-[14px] leading-5 tracking-[0.05em] uppercase tracking-widest hover:bg-surface-container-highest transition-all">
-              Download Brochure
+            <button className="border border-outline-variant text-tertiary px-12 py-5 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-surface-container-highest transition-all">
+              دانلود بروشور
             </button>
           </div>
         </div>

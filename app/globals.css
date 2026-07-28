@@ -1,41 +1,44 @@
 @import "tailwindcss";
 
 /* ══════════════════════════════════════════════════════════
-   STRUCTURA — DESIGN TOKENS
+   STRUCTURA — REFINED INDUSTRIAL ART DESIGN TOKENS
    ══════════════════════════════════════════════════════════ */
 
 @theme inline {
-  --color-background: #fbf9f9;
-  --color-foreground: #1b1c1c;
+  --color-background: #f9f9f8;
+  --color-foreground: #1a1c1c;
 
-  /* Material Design 3 inspired palette */
-  --color-primary: #000000;
+  /* Refined Industrial Art palette */
+  --color-primary: #1a1a1a;
   --color-on-primary: #ffffff;
-  --color-secondary: #b02f00;
-  --color-secondary-container: #ff5722;
-  --color-on-secondary-container: #541100;
+  --color-secondary: #5d5f5c;
+  --color-secondary-container: #e0e0dc;
+  --color-on-secondary-container: #626360;
   --color-on-secondary: #ffffff;
-  --color-surface: #fbf9f9;
-  --color-on-surface: #1b1c1c;
+  --color-surface: #f9f9f8;
+  --color-on-surface: #1a1c1c;
   --color-on-surface-variant: #444748;
-  --color-surface-container-low: #f5f3f3;
+  --color-surface-container-low: #f3f4f3;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container: #efeded;
-  --color-surface-container-high: #e9e8e7;
-  --color-surface-container-highest: #e3e2e2;
+  --color-surface-container: #eeeeed;
+  --color-surface-container-high: #e8e8e7;
+  --color-surface-container-highest: #e2e2e2;
   --color-outline: #747878;
   --color-outline-variant: #c4c7c7;
   --color-on-primary-container: #858383;
   --color-on-primary-fixed: #1c1b1b;
   --color-on-primary-fixed-variant: #474746;
   --color-error: #ba1a1a;
-  --color-tertiary: #000000;
+  --color-tertiary: #6366f1;
   --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #07006c;
+  --color-on-tertiary-container: #7073ff;
+  --color-surface-bright: #f9f9f8;
 
   /* Typography */
-  --font-display-lg: "Montserrat", sans-serif;
-  --font-headline-lg: "Montserrat", sans-serif;
-  --font-headline-md: "Montserrat", sans-serif;
+  --font-display-lg: "Space Grotesk", sans-serif;
+  --font-headline-lg: "Space Grotesk", sans-serif;
+  --font-headline-md: "Space Grotesk", sans-serif;
   --font-body-lg: "Hanken Grotesk", sans-serif;
   --font-body-md: "Hanken Grotesk", sans-serif;
   --font-label-md: "JetBrains Mono", monospace;
@@ -53,11 +56,19 @@
 
   /* Spacing */
   --spacing-margin-desktop: 64px;
-  --spacing-margin-mobile: 16px;
+  --spacing-margin-mobile: 20px;
   --spacing-gutter: 24px;
 
   /* Layout */
-  --max-width-max: 1440px;
+  --max-width-max: 1280px;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-default: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -77,8 +88,8 @@ body {
 }
 
 ::selection {
-  background: var(--color-secondary-container);
-  color: var(--color-on-secondary-container);
+  background: var(--color-tertiary);
+  color: var(--color-on-tertiary);
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -122,9 +133,9 @@ body {
 }
 
 .step-card.in-view {
-  border-color: #ff5722;
+  border-color: #6366f1;
   transform: scale(1.02);
-  box-shadow: 0 0 20px rgba(255, 87, 34, 0.1);
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08);
 }
 
 /* ══════════════════════════════════════════════════════════
