@@ -45,9 +45,12 @@ export default function StructuraServices() {
               ساختاری مستحکم و از نظر زیبایی بی‌نظیر ارائه دهیم.
             </p>
           </div>
-          <div className="hidden md:block font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-secondary mt-4">
-            فهرست خدمات
-          </div>
+          <a href="/services" className="hidden md:flex items-center gap-2 font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-secondary hover:text-tertiary transition-colors mt-4 group">
+            مشاهده همه خدمات
+            <svg className="rotate-180 group-hover:-translate-x-1 transition-transform" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
 
         {/* Cards */}
@@ -79,7 +82,7 @@ export default function StructuraServices() {
                   {service.description}
                 </p>
                 <a
-                  href="#"
+                  href="/services"
                   className="flex items-center gap-2 font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-tertiary group-hover:text-primary transition-colors"
                 >
                   مشاهده مشخصات

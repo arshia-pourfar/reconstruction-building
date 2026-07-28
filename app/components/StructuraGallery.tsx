@@ -8,13 +8,13 @@ export default function StructuraGallery() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Large Feature */}
-          <div className="md:col-span-8 h-[500px] overflow-hidden rounded-2xl reveal">
+          <a href="/projects/penthouse-aseman" className="md:col-span-8 h-[500px] overflow-hidden rounded-2xl reveal group">
             <img
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5vRqE4wd9D1uj-KTODu0ZvbzvthUfIQfCrTvrxx7VGIHmOIsp0UsZtEug8Qw71bGe-6gG9x9AXrq1v4HieJtXywcc0xGQFAYA28D5S-81eTEu0fA23nc3K8krAMEvVqGYTl7LKKYHscT_NT98OKiuZTF57ze11xZ2BsyIdlx2524XxMBICVJjKjrHCIAeGQwouv071cLnb-ugvJD2U2RmW4j8EkeK-JdvnWfRBBwY1epO2t0_0O9wI4kjg2gOWJMOJtzfvyUF9up2"
               alt="اتاق نشیمن مدرن"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
             />
-          </div>
+          </a>
 
           {/* Side Info Card */}
           <div className="md:col-span-4 flex flex-col justify-between p-8 border border-outline-variant rounded-2xl reveal">
@@ -30,28 +30,28 @@ export default function StructuraGallery() {
                 خصوصی.
               </p>
             </div>
-            <button className="w-full py-4 border border-tertiary text-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 uppercase rounded-lg hover:bg-tertiary hover:text-on-tertiary transition-all mt-8">
+            <a href="/projects" className="w-full py-4 border border-tertiary text-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 uppercase rounded-lg hover:bg-tertiary hover:text-on-tertiary transition-all mt-8 text-center">
               مشاهده پروژه
-            </button>
+            </a>
           </div>
 
           {/* Small Image */}
-          <div className="md:col-span-4 h-[400px] overflow-hidden rounded-2xl reveal">
+          <a href="/projects/concrete-sanctuary" className="md:col-span-4 h-[400px] overflow-hidden rounded-2xl reveal group">
             <img
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTSxjaQjIJc_Z5WiVXR_ighl7pN22ehzxLm5SiHv_0qZtcTEutdpTqDR0rcnFlTxG-m6K5ahdtgddUKNiXHzrOMuQGx6mn3IMWaqfGxWrU9IS3tVA3E_kybQLgft1YKB013iMXArd88QCvW5qlxLar1yQvLYUsEU00pQVwhlqptkSRBOpLW2aYj46TY5IxEJVxTYnK7UIoOIo7jeBOANESHZT07RNK5ehXiBzO2Or1-1JK9BoMHO4eemas1k0yU5GwGags0CpWRkVo"
               alt="جزیره آشپزخانه مدرن"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
             />
-          </div>
+          </a>
 
           {/* Wide Image */}
-          <div className="md:col-span-8 h-[400px] overflow-hidden rounded-2xl reveal">
+          <a href="/projects/heritage-reinforcement" className="md:col-span-8 h-[400px] overflow-hidden rounded-2xl reveal group">
             <img
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqtujpaLQnf4e9rOGnOqkzMbiIp8Z-oMROT5DvjcNkad-fDmXUbRwFIS4LgAFIljq5wlObn4fIr8ib0nMWir0-iCPg6URpQqgxsMiwIgQNuv6lDJKn61-LY82v0V2mKP0DjsWqTM0AgglSRA7xj36tw3ZeLr4MrNLJKYWBHdLMpL-2MNE32ytHlBJ9tXus3GDemPT4VJuAXwlM6NPOIb8m92tUD5_eaB1S_CQ3EEeO0EByZsR2aSII28FsmRii7o6bXs4zfDaMzWOq"
               alt="اتاق خواب مستر"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
             />
-          </div>
+          </a>
         </div>
       </div>
     </section>

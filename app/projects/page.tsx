@@ -1,7 +1,9 @@
 import StructuraFooter from "../components/StructuraFooter";
+import PageBanner from "../components/PageBanner";
 
 const PROJECTS = [
   {
+    slug: "penthouse-aseman",
     number: "۰۱",
     category: "بازسازی",
     tag: "مسکونی",
@@ -12,6 +14,7 @@ const PROJECTS = [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAakiIU728C28wN2JEmkwXwjn9d8DqcRMr1zM242JkxBVAPzcOoDkKl2MNPg-cvbB-EKWslKsiBk8owrpr7tCjLTVmeYh6kZmHB6yJ9_C0S2SaCrrWy92Q6nQ6o-FHMKmdXsGtiD_TAIyFWmH2AM2ENPR81edDKrXRRT7vrK_DxGUSzUTk7pV8BvIQeSS8vpVFInMsbC27v4Z5gum-VNHwWZWyC08AOq_yQCKNqDrkkYRJ8zjf0-Ks057CSjHZCk59h79jh_teCwrjl",
   },
   {
+    slug: "concrete-sanctuary",
     number: "۰۲",
     category: "داخلی",
     tag: "مسکونی",
@@ -22,6 +25,7 @@ const PROJECTS = [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuBDxcUPhZSKdJrOmdNbNyTimaV9UtNs-M4Akk2Hy9OYPuk4qUPbKZfVyIRJugGiNO6jP15fYDg2LIR9GaWnuQf_RwM7PO9ifoX57T6-8ncA_o2bweZoOznMjBCGUZSMQGys-RTpioqsp6a--qPnq019LyAsmoVixPsNdw7NgfMC6MqV1gExNMkgaXa_aNVg7jKndsA4DwoPajcKy7asSLhOQpWh9Ap_hWpMXSgmEvH34ARg5N6JoxtBwZB3o_uU1KBvxvP5laZZJI6T",
   },
   {
+    slug: "heritage-reinforcement",
     number: "۰۳",
     category: "مهندسی",
     tag: "ساختاری",
@@ -37,31 +41,13 @@ export default function ProjectsPage() {
   return (
     <main className="pt-20">
       {/* ═══ HERO ═══════════════════════════════════════ */}
-      <section
-        className="relative bg-surface py-24 px-4 md:px-16 border-b border-on-surface"
-        style={{
-          backgroundImage: "radial-gradient(#e0e0e0 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-      >
-        <div className="max-w-[1440px] mx-auto grid grid-cols-12 gap-6">
-          <div className="col-span-12 md:col-span-8">
-            <span className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-secondary mb-4 block">
-              [ نمایش پروژه‌ها ]
-            </span>
-            <h1 className="font-[family-name:var(--font-vazirmatn)] text-[32px] md:text-[64px] leading-[48px] md:leading-[80px] font-extrabold mb-8">
-              برتری معماری
-              <br />
-              در حرکت
-            </h1>
-            <p className="font-[family-name:var(--font-vazirmatn)] text-[18px] leading-[28px] text-on-surface-variant max-w-2xl border-r-4 border-primary pr-6 py-2">
-              مهندسی دقیق با لوکس بودن ظریف ترکیب می‌شود. انتخاب دقیق
-              بازسازی‌های ساختاری و تبدیلات معماری ما را کاوش کنید.
-            </p>
-          </div>
-        </div>
-        <div className="absolute right-0 bottom-0 w-1/4 h-1 bg-primary" />
-      </section>
+      <PageBanner
+        image="/banners/Gemini_Generated_Image_4mhpk94mhpk94mhp.png"
+        phase="[ نمایش پروژه‌ها ]"
+        title="برتری معماری"
+        titleSuffix="در حرکت"
+        description="مهندسی دقیق با لوکس بودن ظریف ترکیب می‌شود. انتخاب دقیق بازسازی‌های ساختاری و تبدیلات معماری ما را کاوش کنید."
+      />
 
       {/* ═══ PROJECT GALLERY ═══════════════════════════ */}
       <section className="py-24 px-4 md:px-16 bg-surface-container-low">
@@ -79,7 +65,8 @@ export default function ProjectsPage() {
 
           <div className="grid grid-cols-12 gap-6">
             {PROJECTS.map((project, i) => (
-              <div
+              <a
+                href={`/projects/${project.slug}`}
                 key={project.number}
                 className={`col-span-12 md:col-span-6 lg:col-span-4 group ${
                   i === 1 ? "lg:mt-12" : i === 2 ? "lg:mt-24" : ""
@@ -109,7 +96,7 @@ export default function ProjectsPage() {
                     </p>
                     <div className="pt-6 border-t border-outline-variant flex justify-between items-center">
                       <span className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5">
-                        مشاهده نقشه
+                        مشاهده جزئیات
                       </span>
                       <svg
                         className="text-secondary group-hover:-translate-x-2 transition-transform rotate-180"
@@ -125,7 +112,7 @@ export default function ProjectsPage() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

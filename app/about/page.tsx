@@ -1,4 +1,5 @@
 import StructuraFooter from "../components/StructuraFooter";
+import PageBanner from "../components/PageBanner";
 
 const TEAM = [
   {
@@ -42,57 +43,14 @@ export default function AboutPage() {
   return (
     <main className="pt-20">
       {/* ═══ HERO ═══════════════════════════════════════ */}
-      <section className="relative min-h-[80vh] flex items-center overflow-hidden bg-primary">
-        <div className="absolute inset-0 opacity-20">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px)",
-              backgroundSize: "40px 40px",
-            }}
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.05) 40px, rgba(255,255,255,0.05) 80px)",
-            }}
-          />
-        </div>
-
-        <div className="absolute left-0 top-0 h-full w-1/2 opacity-30 flex items-center justify-center">
-          <svg
-            fill="none"
-            height="600"
-            viewBox="0 0 400 600"
-            width="400"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M350 0V600M50 0V600M350 100H50M350 300H50M350 500H50M350 100L50 300M350 300L50 500M50 100L350 300M50 300L350 500"
-              stroke="white"
-              strokeWidth="2"
-            />
-          </svg>
-        </div>
-
-        <div className="relative w-full px-4 md:px-16 max-w-[1440px] mx-auto">
-          <span className="inline-block bg-secondary-container text-white px-3 py-1 font-[family-name:var(--font-vazirmatn)] text-[12px] leading-4 mb-6">
-            درباره ما
-          </span>
-          <h1 className="font-[family-name:var(--font-vazirmatn)] text-[32px] md:text-[64px] leading-[48px] md:leading-[80px] font-extrabold text-white max-w-3xl leading-none">
-            مهندسی
-            <br />
-            میراث
-          </h1>
-          <div className="mt-12 h-1 w-24 bg-secondary-container" />
-          <p className="mt-8 text-on-primary-container font-[family-name:var(--font-vazirmatn)] text-[18px] leading-[28px] max-w-xl">
-            جایی که تخصص ساختاری سنگین با دقت اصلاح معماری ترکیب می‌شود. ما
-            برای قرن بعد می‌سازیم.
-          </p>
-        </div>
-      </section>
+      <PageBanner
+        image="/banners/site-plan.jpg"
+        phase="درباره ما // هویت"
+        title="مهندسی"
+        titleSuffix="میراث"
+        description="ما تیمی از مهندسان، معماران و استادکاران هستیم که به صداقت ساختاری و زیبایی صنعتی باور داریم."
+        align="center"
+      />
 
       {/* ═══ OUR STORY ════════════════════════════════ */}
       <section className="py-24 bg-surface">

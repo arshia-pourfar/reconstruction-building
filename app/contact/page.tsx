@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react";
 import StructuraFooter from "../components/StructuraFooter";
+import PageBanner from "../components/PageBanner";
 
 const projectTypes = [
   "بازسازی کامل",
@@ -39,36 +40,14 @@ export default function ContactPage() {
   return (
     <main className="pt-20">
       {/* ═══ HERO ═══════════════════════════════════════ */}
-      <section
-        className="relative min-h-[400px] flex flex-col justify-center border-b border-outline-variant overflow-hidden"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, #e0e0e0 1px, transparent 1px), linear-gradient(to bottom, #e0e0e0 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-        }}
-      >
-        <div className="px-4 md:px-16 max-w-[1440px] mx-auto w-full py-24 relative">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="h-1 w-12 bg-secondary-container" />
-              <span className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-secondary-container">
-                تماس با ما
-              </span>
-            </div>
-
-            <h1 className="font-[family-name:var(--font-vazirmatn)] text-[32px] md:text-[64px] leading-[48px] md:leading-[80px] font-extrabold text-primary mb-8">
-              فصل بعدی
-              <br />
-              فضایتان را طراحی کنیم
-            </h1>
-
-            <p className="font-[family-name:var(--font-vazirmatn)] text-[18px] leading-[28px] text-on-surface-variant max-w-xl leading-relaxed">
-              درباره فضایتان برای ما بگویید — ظرف ۲۴ ساعت پاسخ خواهیم داد.
-            </p>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-px bg-primary hidden md:block" />
-      </section>
+      <PageBanner
+        image="/banners/Gemini_Generated_Image_u8qf60u8qf60u8qf (3).png"
+        phase="تماس با ما // شروع"
+        title="فصل بعدی"
+        titleSuffix="فضایتان را طراحی کنیم"
+        description="درباره فضایتان برای ما بگویید — ظرف ۲۴ ساعت پاسخ خواهیم داد."
+        align="right"
+      />
 
       {/* ═══ TWO COLUMN ════════════════════════════════ */}
       <section className="py-24 bg-surface-container-lowest">

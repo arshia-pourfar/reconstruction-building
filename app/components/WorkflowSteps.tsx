@@ -9,178 +9,259 @@ gsap.registerPlugin(ScrollTrigger);
 const STEPS = [
   {
     number: "۰۱",
-    title: "ممیزی ساختاری",
+    title: "مشاوره",
     description:
-      "تحلیل استخوان‌های سایت از طریق تصویربرداری حرارتی و اسکن‌های ساختاری. پتانسیل باربری و محدودیت‌های پنهان را شناسایی می‌کنیم.",
+      "با یک تحلیل دقیق سایت و مطالعه امکان‌سنجی شروع می‌کنیم. درک سبک زندگی شما و پتانسیل ساختاری سایت، پایه کار ماست.",
   },
   {
     number: "۰۲",
-    title: "طراحی و ساخت",
+    title: "طراحی",
     description:
-      "تهیه نقشه‌های دقیق و مدل‌های سه‌بعدی. تغییرات ساختاری را در یک محیط مجازی شبیه‌سازی می‌کنیم.",
+      "دقت فنی با دید خلاقانه ترکیب می‌شود. ما مدل‌های BIM دقیق و مشخصات متریال تولید می‌کنیم تا هر میلی‌متر مشخص باشد.",
   },
   {
     number: "۰۳",
-    title: "تخریب دقیق",
+    title: "اجرا",
     description:
-      "حذف دقیق عناصر قدیمی. فضا را با دقت جراحی به اصل آن برمی‌گردانیم.",
-  },
-  {
-    number: "۰۴",
-    title: "مونتاژ صنعتی",
-    description:
-      "ساخت و نازک‌کاری نهایی. اجزای پیش‌ساخته فولادی و مasonry سفارشی را با پایان درجه صنعتی نصب می‌کنیم.",
+      "تیم‌های ساخت ما با انضباط مهندسی عمل می‌کنند. تمام لجستیک ساختاری و نازک‌کاری را مدیریت می‌کنیم تا کمال را به موقع تحویل دهیم.",
   },
 ];
 
 export default function WorkflowSteps() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
+  const tracerRef = useRef<HTMLDivElement>(null);
   const stepRefs = useRef<HTMLDivElement[]>([]);
   const numRefs = useRef<HTMLDivElement[]>([]);
+  const glowRefs = useRef<HTMLDivElement[]>([]);
+  const contentRefs = useRef<HTMLDivElement[]>([]);
   const imageRef = useRef<HTMLDivElement>(null);
+  const captionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
-    // Header entrance
-    const header = section.querySelector(".workflow-header");
-    if (header) {
-      gsap.fromTo(header,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1, y: 0, duration: 0.8, ease: "power2.out",
-          scrollTrigger: { trigger: section, start: "top 75%", toggleActions: "play none none none" },
-        },
-      );
-    }
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Vertical line fill
-    if (lineRef.current) {
-      gsap.fromTo(lineRef.current,
-        { scaleY: 0 },
-        {
-          scaleY: 1, ease: "none",
-          scrollTrigger: {
-            trigger: section,
-            start: "top 65%",
-            end: "bottom 40%",
-            scrub: 0.6,
+    const ctx = gsap.context(() => {
+      // ── Header entrance ─────────────────────────────
+      const header = section.querySelector(".wf-header");
+      if (header && !prefersReduced) {
+        const label = header.querySelector(".wf-label");
+        const title = header.querySelector(".wf-title");
+        const sub = header.querySelector(".wf-sub");
+        const tl = gsap.timeline({
+          scrollTrigger: { trigger: section, start: "top 78%", toggleActions: "play none none none" },
+        });
+        if (label) tl.fromTo(label, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 0);
+        if (title) tl.fromTo(title, { opacity: 0, y: 24, filter: "blur(4px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.7, ease: "power2.out" }, 0.1);
+        if (sub) tl.fromTo(sub, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 0.25);
+      } else if (header) {
+        gsap.set(header, { opacity: 1 });
+      }
+
+      // ── Vertical line + tracer ──────────────────────
+      const line = lineRef.current;
+      const tracer = tracerRef.current;
+      if (line && !prefersReduced) {
+        gsap.fromTo(line,
+          { scaleY: 0 },
+          {
+            scaleY: 1, ease: "none",
+            scrollTrigger: { trigger: section, start: "top 55%", end: "bottom 30%", scrub: 0.5 },
           },
-        },
-      );
-    }
+        );
+      } else if (line) {
+        gsap.set(line, { scaleY: 1 });
+      }
 
-    // Each step stagger reveal
-    STEPS.forEach((_, i) => {
-      const step = stepRefs.current[i];
-      const num = numRefs.current[i];
-      if (!step) return;
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: `${10 + i * 20}% 70%`,
-          toggleActions: "play none none none",
-        },
-      });
-
-      // Number pop
-      if (num) {
-        tl.fromTo(num,
-          { scale: 0, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(3)" },
-          0,
+      if (tracer && !prefersReduced) {
+        gsap.fromTo(tracer,
+          { top: "0%" },
+          {
+            top: "100%", ease: "none",
+            scrollTrigger: { trigger: section, start: "top 55%", end: "bottom 30%", scrub: 0.5 },
+          },
         );
       }
 
-      // Step card slide in
-      tl.fromTo(step,
-        { opacity: 0, x: 40, filter: "blur(4px)" },
-        { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.6, ease: "power2.out" },
-        0.1,
-      );
-    });
+      // ── Steps ───────────────────────────────────────
+      STEPS.forEach((_, i) => {
+        const step = stepRefs.current[i];
+        const num = numRefs.current[i];
+        const glow = glowRefs.current[i];
+        const content = contentRefs.current[i];
+        if (!step || !num) return;
 
-    // Image reveal
-    if (imageRef.current) {
-      gsap.fromTo(imageRef.current,
-        { opacity: 0, scale: 0.95, y: 40 },
-        {
-          opacity: 1, scale: 1, y: 0, duration: 1, ease: "power2.out",
+        const startPct = 10 + i * 25;
+
+        if (prefersReduced) {
+          gsap.set([step, num], { opacity: 1 });
+          if (content) gsap.set(content, { opacity: 1 });
+          return;
+        }
+
+        const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: imageRef.current,
-            start: "top 80%",
+            trigger: section,
+            start: `${startPct}% 70%`,
             toggleActions: "play none none none",
           },
-        },
-      );
-    }
+        });
 
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-    };
+        // Number badge: scale + rotation
+        tl.fromTo(num,
+          { scale: 0, opacity: 0, rotation: -20 },
+          { scale: 1, opacity: 1, rotation: 0, duration: 0.5, ease: "back.out(3)" },
+          0,
+        );
+
+        // Glow pulse
+        if (glow) {
+          tl.fromTo(glow,
+            { scale: 0.5, opacity: 0 },
+            { scale: 2, opacity: 0.3, duration: 0.55, ease: "power2.out" },
+            0,
+          );
+          tl.to(glow,
+            { scale: 2.8, opacity: 0, duration: 0.8, ease: "power1.out" },
+            0.2,
+          );
+        }
+
+        // Step card slide
+        tl.fromTo(step,
+          { opacity: 0, x: 40, filter: "blur(5px)" },
+          { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.65, ease: "power2.out" },
+          0.06,
+        );
+
+        // Description
+        if (content) {
+          tl.fromTo(content,
+            { opacity: 0, y: 12 },
+            { opacity: 1, y: 0, duration: 0.55, ease: "power2.out" },
+            0.18,
+          );
+        }
+      });
+
+      // ── Image reveal ────────────────────────────────
+      const img = imageRef.current;
+      const cap = captionRef.current;
+      if (img && !prefersReduced) {
+        const imgTl = gsap.timeline({
+          scrollTrigger: { trigger: img, start: "top 85%", toggleActions: "play none none none" },
+        });
+        imgTl.fromTo(img,
+          { opacity: 0, scale: 0.93, y: 60, filter: "blur(8px)" },
+          { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", duration: 1.1, ease: "power2.out" },
+          0,
+        );
+        if (cap) {
+          imgTl.fromTo(cap,
+            { opacity: 0, y: 24 },
+            { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" },
+            0.35,
+          );
+        }
+      } else if (img) {
+        gsap.set(img, { opacity: 1 });
+        if (cap) gsap.set(cap, { opacity: 1 });
+      }
+    }, section);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 bg-surface-container-low">
+    <section ref={sectionRef} className="py-24 md:py-36 bg-surface-container-low overflow-hidden">
       <div className="container mx-auto px-4 md:px-16 max-w-[1280px]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-start">
-          {/* Left — Steps */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-28 items-start">
+
+          {/* ── Left: Steps ──────────────────────────── */}
           <div>
-            <div className="workflow-header mb-12 md:mb-16">
-              <span className="text-[13px] text-tertiary/60 block mb-3"
+            <div className="wf-header mb-14 md:mb-20 opacity-0">
+              <span className="wf-label text-[11px] text-tertiary/50 block mb-3 tracking-[0.2em] uppercase"
                 style={{ fontFamily: "Vazirmatn, sans-serif", fontWeight: 400 }}
               >
                 خط لوله گردش کار
               </span>
-              <h2 className="text-[28px] md:text-[40px] leading-[40px] md:leading-[56px] font-extrabold"
+              <h2 className="wf-title text-[28px] md:text-[42px] leading-[40px] md:leading-[56px] font-extrabold mb-3"
                 style={{ fontFamily: "Vazirmatn, sans-serif" }}
               >
-                مراحل تبدیل
+                گردش کار
               </h2>
+              <p className="wf-sub text-[13px] md:text-[14px] leading-[22px] text-on-surface-variant/60 max-w-sm"
+                style={{ fontFamily: "Vazirmatn, sans-serif", fontWeight: 400 }}
+              >
+                نقشه راه تا واقعیت
+              </p>
             </div>
 
             <div className="relative">
               {/* Animated vertical line */}
-              <div className="absolute right-5 top-5 bottom-0 w-px bg-outline-variant/40">
+              <div className="absolute right-[18px] top-[18px] bottom-0 w-px bg-outline-variant/25">
                 <div
                   ref={lineRef}
-                  className="absolute top-0 left-0 w-full bg-tertiary origin-top"
-                  style={{ height: "100%" }}
+                  className="absolute top-0 left-0 w-full origin-top"
+                  style={{
+                    height: "100%",
+                    background: "linear-gradient(180deg, rgba(99,102,241,0.1), rgba(99,102,241,0.5), #6366f1)",
+                  }}
+                />
+                {/* Tracer */}
+                <div
+                  ref={tracerRef}
+                  className="absolute left-1/2 -translate-x-1/2 w-[5px] h-[5px] rounded-full bg-tertiary z-10"
+                  style={{
+                    boxShadow: "0 0 8px rgba(99,102,241,0.5), 0 0 20px rgba(99,102,241,0.15)",
+                    top: "0%",
+                  }}
                 />
               </div>
 
               {/* Steps */}
-              <div className="space-y-12">
+              <div className="space-y-14">
                 {STEPS.map((step, i) => (
                   <div
                     key={step.number}
                     ref={(el) => { if (el) stepRefs.current[i] = el; }}
-                    className="relative pr-16 opacity-0"
+                    className="relative pr-[52px] opacity-0 group"
                   >
                     {/* Number badge */}
-                    <div
-                      ref={(el) => { if (el) numRefs.current[i] = el; }}
-                      className="absolute right-0 top-0 w-10 h-10 border border-outline-variant rounded-lg bg-background flex items-center justify-center text-[14px] z-10 opacity-0"
-                      style={{ fontFamily: "Vazirmatn, sans-serif" }}
-                    >
-                      {step.number}
+                    <div className="absolute right-0 top-0 z-10">
+                      {/* Glow ring */}
+                      <div
+                        ref={(el) => { if (el) glowRefs.current[i] = el; }}
+                        className="absolute rounded-full bg-tertiary/15 opacity-0 pointer-events-none"
+                        style={{ inset: "-10px" }}
+                      />
+                      {/* Badge */}
+                      <div
+                        ref={(el) => { if (el) numRefs.current[i] = el; }}
+                        className="relative w-[36px] h-[36px] rounded-full border border-outline-variant/50 bg-background flex items-center justify-center text-[13px] opacity-0 transition-all duration-300 group-hover:border-tertiary/40 group-hover:bg-tertiary/5 group-hover:shadow-[0_0_16px_rgba(99,102,241,0.08)]"
+                        style={{ fontFamily: "Vazirmatn, sans-serif", fontWeight: 600 }}
+                      >
+                        {step.number}
+                      </div>
                     </div>
 
                     {/* Content */}
-                    <div className="pt-1">
-                      <h4 className="text-[20px] md:text-[24px] leading-[32px] md:leading-[36px] font-bold mb-2"
+                    <div className="pt-0.5 transition-transform duration-300 group-hover:translate-x-[-2px]">
+                      <h4 className="text-[18px] md:text-[21px] leading-[28px] md:leading-[32px] font-bold mb-2.5"
                         style={{ fontFamily: "Vazirmatn, sans-serif" }}
                       >
                         {step.title}
                       </h4>
-                      <p className="text-[14px] md:text-[15px] leading-[24px] text-on-surface-variant"
+                      <div
+                        ref={(el) => { if (el) contentRefs.current[i] = el; }}
+                        className="text-[13px] md:text-[14px] leading-[22px] md:leading-[24px] text-on-surface-variant/70 opacity-0"
                         style={{ fontFamily: "Vazirmatn, sans-serif", fontWeight: 400 }}
                       >
                         {step.description}
-                      </p>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -188,25 +269,29 @@ export default function WorkflowSteps() {
             </div>
           </div>
 
-          {/* Right — Image */}
-          <div ref={imageRef} className="relative opacity-0">
-            <div
-              className="aspect-[4/5] bg-surface-container overflow-hidden rounded-2xl border border-outline-variant"
-              style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.08)" }}
-            >
-              <img
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkP_JwtttTsf8FIRPKao9nqL6UykrluSRTqdDnDDnZtEZBUmn_5vC1v-VlTqBJq8QbFkkiLgScl498NmP3U5PMvvI2PGAIxKrAxvs9ss7mB-5ig5e8GBLqd9itjCiyLOl6GLvjpXGDiBrSYCKfE-QuqogzcvuPOideBaw5vpH7UejVDxLvlOHczoY0jFph1rKqJnOf5zfE02dBEWlgiDnX1xTci9egQ7XtuAcvBo9Peot6Vo9qGbl3LCNotH_uyzo2KBP5L9jiq-tG"
-                alt="تقویت ساختاری"
-                className="w-full h-full object-cover grayscale-[50%] hover:grayscale-0 transition-all duration-700"
-              />
+          {/* ── Right: Image ──────────────────────────── */}
+          <div className="relative lg:mt-8">
+            <div ref={imageRef} className="opacity-0">
+              <div
+                className="aspect-[4/5] bg-surface-container overflow-hidden rounded-2xl border border-outline-variant/50"
+                style={{ boxShadow: "0 4px 28px rgba(0,0,0,0.07)" }}
+              >
+                <img
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkP_JwtttTsf8FIRPKao9nqL6UykrluSRTqdDnDDnZtEZBUmn_5vC1v-VlTqBJq8QbFkkiLgScl498NmP3U5PMvvI2PGAIxKrAxvs9ss7mB-5ig5e8GBLqd9itjCiyLOl6GLvjpXGDiBrSYCKfE-QuqogzcvuPOideBaw5vpH7UejVDxLvlOHczoY0jFph1rKqJnOf5zfE02dBEWlgiDnX1xTci9egQ7XtuAcvBo9Peot6Vo9qGbl3LCNotH_uyzo2KBP5L9jiq-tG"
+                  alt="تقویت ساختاری"
+                  className="w-full h-full object-cover grayscale-[40%] hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 bg-tertiary text-on-primary p-6 md:p-8 max-w-xs rounded-2xl">
-              <div className="text-[13px] text-on-primary/60 mb-2"
+            <div ref={captionRef} className="absolute -bottom-5 -right-5 md:-bottom-7 md:-right-7 bg-tertiary text-on-primary p-5 md:p-6 max-w-[240px] rounded-2xl opacity-0"
+              style={{ boxShadow: "0 10px 36px rgba(99,102,241,0.22)" }}
+            >
+              <div className="text-[11px] text-on-primary/45 mb-1.5 tracking-wider"
                 style={{ fontFamily: "Vazirmatn, sans-serif", fontWeight: 400 }}
               >
                 شکل_۰۶A
               </div>
-              <p className="text-[13px] md:text-[14px] leading-[22px] italic opacity-80"
+              <p className="text-[12px] md:text-[13px] leading-[20px] italic opacity-80"
                 style={{ fontFamily: "Vazirmatn, sans-serif", fontWeight: 400 }}
               >
                 &quot;فاز تقویت ساختاری با استفاده از تیرهای فولادی تقویت
@@ -214,6 +299,7 @@ export default function WorkflowSteps() {
               </p>
             </div>
           </div>
+
         </div>
       </div>
     </section>

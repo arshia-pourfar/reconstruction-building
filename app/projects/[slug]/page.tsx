@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import StructuraFooter from "../../components/StructuraFooter";
+import PageBanner from "../../components/PageBanner";
 
 const HIGHLIGHTS = [
   {
@@ -130,40 +131,13 @@ export default function ProjectDetailPage() {
   return (
     <main className="pt-20">
       {/* ═══ PROJECT HEADER ═══════════════════════════ */}
-      <section className="max-w-[1440px] mx-auto px-4 md:px-16 py-12 md:py-20 border-b border-on-surface-variant">
-        <div className="flex flex-col md:flex-row justify-between items-end gap-6">
-          <div className="max-w-2xl">
-            <span className="font-[family-name:var(--font-vazirmatn)] text-[12px] leading-4 text-secondary mb-4 block">
-              بازسازی مسکونی // ۰۴۲
-            </span>
-            <h1 className="font-[family-name:var(--font-vazirmatn)] text-[32px] md:text-[64px] leading-[48px] md:leading-[80px] font-extrabold mb-6 leading-[0.9]">
-              مجموعه آشپزخانه تک‌بلاک
-            </h1>
-            <p className="font-[family-name:var(--font-vazirmatn)] text-[18px] leading-[28px] text-on-surface-variant leading-relaxed">
-              محیط آشپزی دقیق مهندسی‌شده تعریف شده توسط صداقت ساختاری و
-              کنتراست متریال. این پروژه یک فضای کاری مسکونی قدیمی را به یک
-              آزمایشگاه آشپزخانه درجه صنعتی تبدیل کرد.
-            </p>
-          </div>
-          <a
-            href="/projects"
-            className="flex items-center gap-2 font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-on-surface hover:text-secondary transition-colors group"
-          >
-            <svg
-              className="transition-transform group-hover:translate-x-1 rotate-180"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-            بازگشت به نمونه کارها
-          </a>
-        </div>
-      </section>
+      <PageBanner
+        image="/banners/Gemini_Generated_Image_u8qf60u8qf60u8qf (2).png"
+        phase="بازسازی مسکونی // ۰۴۲"
+        title="مجموعه آشپزخانه"
+        titleSuffix="تک‌بلاک"
+        description="محیط آشپزی دقیق مهندسی‌شده تعریف شده توسط صداقت ساختاری و کنتراست متریال."
+      />
 
       {/* ═══ BEFORE/AFTER SLIDER ══════════════════════ */}
       <section className="bg-surface-container-low py-16 overflow-hidden">

@@ -1,6 +1,7 @@
 import StructuraFooter from "../components/StructuraFooter";
 import RoadmapLine from "../components/RoadmapLine";
 import WorkflowSteps from "../components/WorkflowSteps";
+import PageBanner from "../components/PageBanner";
 
 const RULES = [
   {
@@ -54,57 +55,13 @@ export default function ProcessPage() {
   return (
     <main className="pt-20">
       {/* ═══ HERO ═══════════════════════════════════════ */}
-      <section className="relative h-[70vh] flex items-center overflow-hidden border-b border-outline-variant">
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, #e3e2e2 1px, transparent 1px)",
-            backgroundSize: "32px 32px",
-          }}
-        />
-        <div className="absolute top-0 right-0 w-1/3 h-full border-l border-primary/20 pointer-events-none">
-          <div className="absolute top-1/4 left-0 w-full h-px bg-primary/20" />
-          <div className="absolute top-3/4 left-0 w-full h-px bg-primary/20" />
-        </div>
-
-        <div className="container mx-auto px-4 md:px-16 max-w-[1440px] z-10">
-          <div className="max-w-3xl">
-            <span className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-secondary mb-4 block">
-              فاز ۰۰ // روش‌شناسی
-            </span>
-            <h1 className="font-[family-name:var(--font-vazirmatn)] text-[32px] md:text-[64px] leading-[48px] md:leading-[80px] font-extrabold mb-8">
-              روش ساختارا
-            </h1>
-            <p className="font-[family-name:var(--font-vazirmatn)] text-[18px] leading-[28px] text-on-surface-variant max-w-xl mb-12">
-              دقت مهندسی با دید معماری ترکیب می‌شود. ما فقط بازسازی نمی‌کنیم؛
-              فضاها را از هسته بازآفرینی می‌کنیم و زیبایی خام ضرورت ساختاری را
-              جشن می‌گیریم.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 items-center">
-              <button
-                className="bg-tertiary text-on-primary px-10 py-4 rounded-lg font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:shadow-[0_4px_20px_rgba(99,102,241,0.3)] hover:brightness-110 transition-all"
-                style={{ boxShadow: "0 2px 8px rgba(99,102,241,0.15)" }}
-              >
-                مشاهده مشخصات
-              </button>
-              <div className="flex items-center gap-4 text-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 py-4">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                </svg>
-                تضمین برتری فنی
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PageBanner
+        image="/banners/Gemini_Generated_Image_u8qf60u8qf60u8qf (1).png"
+        phase="فاز ۰۰ // روش‌شناسی"
+        title="روش"
+        titleSuffix="ساختارا"
+        description="دقت مهندسی با دید معماری ترکیب می‌شود. ما فقط بازسازی نمی‌کنیم؛ فضاها را از هسته بازآفرینی می‌کنیم و زیبایی خام ضرورت ساختاری را جشن می‌گیریم."
+      />
 
       {/* ═══ CORE PRINCIPLES ═══════════════════════════ */}
       <section className="py-24 border-b border-outline-variant">
