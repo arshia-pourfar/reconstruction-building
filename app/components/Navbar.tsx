@@ -118,20 +118,17 @@ export default function Navbar() {
         }`}
         style={{ backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)", border: "1px solid rgba(255,255,255,0.06)" }}
       >
-        <Link href="/" className="shrink-0 no-underline text-white/90 text-[15px] font-semibold tracking-tight transition-colors hover:text-white ml-1" style={{ fontFamily: "var(--font-persian)" }}>
+        <Link href="/" className="shrink-0 no-underline text-white/90 text-[15px] font-semibold tracking-tight transition-colors hover:text-white ml-4" style={{ fontFamily: "var(--font-persian)" }}>
           بازسازی نو
         </Link>
 
         <nav className="flex-1 flex items-center justify-center gap-0.5">
-          <Link href="/" className="text-[13px] font-medium text-white/70 no-underline px-3 py-1.5 rounded-lg transition-all duration-200 hover:text-white hover:bg-white/[0.06]" style={{ fontFamily: "var(--font-persian)" }}>
-            خانه
-          </Link>
+          <Link href="/" className="nav-item">خانه</Link>
 
           <div className="relative" ref={megaRef} onMouseEnter={openMega} onMouseLeave={closeMega}>
             <button
               onClick={() => megaOpen ? setMegaOpen(false) : openMega()}
-              className={`text-[13px] font-medium text-white/70 no-underline px-3 py-1.5 rounded-lg transition-all duration-200 border-0 bg-transparent cursor-pointer flex items-center gap-1 hover:text-white hover:bg-white/[0.06] ${megaOpen ? "text-white bg-white/[0.06]" : ""}`}
-              style={{ fontFamily: "var(--font-persian)" }}
+              className={`nav-item flex items-center gap-1 ${megaOpen ? "!text-white !bg-white/10" : ""}`}
             >
               خدمات
               <svg className={`w-2.5 h-2.5 transition-transform duration-200 ${megaOpen ? "rotate-180" : ""}`} viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -141,22 +138,23 @@ export default function Navbar() {
 
             {megaOpen && (
               <div
-                className="absolute top-[calc(100%+10px)] right-0 w-[860px] p-5 rounded-2xl z-[200]"
+                className="absolute top-full mt-4 w-182 p-5 rounded-2xl z-200 mega-dropdown"
                 style={{
-                  background: "rgba(var(--matte-slate-rgb),0.88)",
-                  backdropFilter: "blur(40px)",
-                  WebkitBackdropFilter: "blur(40px)",
-                  border: "1px solid rgba(255,255,255,0.08)",
+                  right: 0,
+                  background: "rgba(var(--matte-slate-rgb),0.96)",
+                  backdropFilter: "blur(60px)",
+                  WebkitBackdropFilter: "blur(60px)",
+                  border: "1px solid rgba(255,255,255,0.1)",
                   boxShadow: "0 24px 64px rgba(0,0,0,0.5)",
                   animation: "mega-in 0.2s cubic-bezier(0.22,1,0.36,1)",
                 }}
                 onMouseEnter={openMega}
                 onMouseLeave={closeMega}
               >
-                <div className="grid grid-cols-3 gap-5">
+                <div className="grid grid-cols-3 gap-4">
                   {megaColumns.map((col) => (
                     <div key={col.title} className="flex flex-col">
-                      <span className="text-[10px] font-semibold tracking-[2px] uppercase text-white/30 mb-3 px-1" style={{ fontFamily: "var(--font-persian)" }}>
+                      <span className="text-xs font-semibold tracking-[2px] uppercase text-white/30 mb-3 pr-1" style={{ fontFamily: "var(--font-persian)" }}>
                         {col.title}
                       </span>
                       <div className="flex flex-col gap-0.5">
@@ -164,13 +162,13 @@ export default function Navbar() {
                           <Link
                             key={item.label}
                             href={item.href}
-                            className="flex flex-col gap-0 p-2.5 rounded-xl no-underline transition-all duration-150 hover:bg-white/[0.05] group"
+                            className="flex flex-col gap-0.5 p-2.5 rounded-xl no-underline transition-all duration-200 hover:bg-white/[0.06] group"
                             onClick={() => setMegaOpen(false)}
                           >
-                            <span className="text-[12.5px] font-medium text-white/85 leading-snug transition-colors group-hover:text-white" style={{ fontFamily: "var(--font-persian)" }}>
+                            <span className="text-sm font-medium text-white/85 leading-snug transition-colors group-hover:text-white" style={{ fontFamily: "var(--font-persian)" }}>
                               {item.label}
                             </span>
-                            <span className="text-[11px] text-white/35 leading-relaxed" style={{ fontFamily: "var(--font-persian)" }}>
+                            <span className="text-sm text-white/35 leading-relaxed group-hover:text-white/50 transition-colors" style={{ fontFamily: "var(--font-persian)" }}>
                               {item.desc}
                             </span>
                           </Link>
@@ -179,30 +177,34 @@ export default function Navbar() {
                     </div>
                   ))}
                 </div>
+                <div className="mt-4 pt-4 border-t border-white/[0.06] flex items-center justify-between">
+                  <span className="text-[11px] text-white/25" style={{ fontFamily: "var(--font-persian)" }}>همه خدمات تخصصی بازسازی و طراحی</span>
+                  <Link href="/services" className="text-[11px] font-semibold text-[var(--oak)] no-underline flex items-center gap-1.5 transition-all duration-200 hover:gap-2" style={{ fontFamily: "var(--font-persian)" }} onClick={() => setMegaOpen(false)}>
+                    مشاهده همه
+                    <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M10 4L6 8L10 12" /></svg>
+                  </Link>
+                </div>
               </div>
             )}
           </div>
 
           {navLinks.filter((l) => l.href !== "/").map((link) => (
-            <Link key={link.href} href={link.href} className="text-[13px] font-medium text-white/70 no-underline px-3 py-1.5 rounded-lg transition-all duration-200 hover:text-white hover:bg-white/[0.06]" style={{ fontFamily: "var(--font-persian)" }}>
-              {link.label}
-            </Link>
+            <Link key={link.href} href={link.href} className="nav-item">{link.label}</Link>
           ))}
 
           <button
             onClick={() => setContactOpen(true)}
-            className="text-[13px] font-medium text-white/70 px-3 py-1.5 rounded-lg transition-all duration-200 border-0 bg-transparent cursor-pointer hover:text-white hover:bg-white/[0.06]"
-            style={{ fontFamily: "var(--font-persian)" }}
+            className="nav-item"
           >
             تماس با ما
           </button>
         </nav>
 
-        <Link href="/contact" className="shrink-0 text-[12px] font-semibold text-white no-underline px-4 py-2 rounded-lg transition-all duration-200 hover:brightness-110 hover:-translate-y-px" style={{ fontFamily: "var(--font-persian)", background: "var(--oak)" }}>
+        <Link href="/contact" className="shrink-0 h-[34px] flex items-center text-[12px] font-semibold text-white no-underline px-4 rounded-lg transition-all duration-200 hover:brightness-110 hover:-translate-y-px" style={{ fontFamily: "var(--font-persian)", background: "var(--oak)" }}>
           مشاوره رایگان
         </Link>
 
-        <button className="mr-3 flex items-center justify-center w-8 h-8 rounded-lg text-white/70 bg-white/[0.06] border-none cursor-pointer lg:hidden hover:text-white hover:bg-white/[0.1] transition-all" onClick={() => setMobileOpen(!mobileOpen)} aria-label="منو">
+        <button className="mr-2 flex items-center justify-center w-[34px] h-[34px] rounded-lg text-white/70 bg-white/6 border-none cursor-pointer lg:hidden hover:text-white hover:bg-white/10 transition-all" onClick={() => setMobileOpen(!mobileOpen)} aria-label="منو">
           {mobileOpen ? (
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="6" y1="6" x2="18" y2="18" /><line x1="6" y1="18" x2="18" y2="6" /></svg>
           ) : (
@@ -214,35 +216,35 @@ export default function Navbar() {
       {mobileOpen && (
         <div
           dir="rtl"
-          className="fixed z-[99] left-1/2 -translate-x-1/2 flex flex-col gap-1 p-3 rounded-2xl lg:hidden"
+          className="fixed z-99 left-1/2 -translate-x-1/2 flex flex-col gap-1 p-3 rounded-2xl lg:hidden"
           style={{
             top: "84px", width: "calc(100% - 48px)", maxWidth: "400px",
             background: "rgba(var(--matte-slate-rgb),0.9)", backdropFilter: "blur(40px)", WebkitBackdropFilter: "blur(40px)",
             border: "1px solid rgba(255,255,255,0.06)", boxShadow: "0 24px 64px rgba(0,0,0,0.4)",
           }}
         >
-          <Link href="/" className="text-[14px] font-medium text-white/80 no-underline px-4 py-2.5 rounded-xl hover:bg-white/[0.06]" style={{ fontFamily: "var(--font-persian)" }} onClick={() => setMobileOpen(false)}>خانه</Link>
-          <Link href="/services" className="text-[14px] font-medium text-white/80 no-underline px-4 py-2.5 rounded-xl hover:bg-white/[0.06]" style={{ fontFamily: "var(--font-persian)" }} onClick={() => setMobileOpen(false)}>خدمات</Link>
-          <Link href="/projects" className="text-[14px] font-medium text-white/80 no-underline px-4 py-2.5 rounded-xl hover:bg-white/[0.06]" style={{ fontFamily: "var(--font-persian)" }} onClick={() => setMobileOpen(false)}>نمونه‌کارها</Link>
-          <Link href="/calculator" className="text-[14px] font-medium text-white/80 no-underline px-4 py-2.5 rounded-xl hover:bg-white/[0.06]" style={{ fontFamily: "var(--font-persian)" }} onClick={() => setMobileOpen(false)}>تخمین هزینه</Link>
-          <Link href="/blog" className="text-[14px] font-medium text-white/80 no-underline px-4 py-2.5 rounded-xl hover:bg-white/[0.06]" style={{ fontFamily: "var(--font-persian)" }} onClick={() => setMobileOpen(false)}>مجله / بلاگ</Link>
-          <Link href="/rules" className="text-[14px] font-medium text-white/80 no-underline px-4 py-2.5 rounded-xl hover:bg-white/[0.06]" style={{ fontFamily: "var(--font-persian)" }} onClick={() => setMobileOpen(false)}>قوانین و ضمانت‌ها</Link>
-          <button className="text-[14px] font-medium text-white/80 px-4 py-2.5 rounded-xl hover:bg-white/[0.06] text-right border-0 bg-transparent cursor-pointer" style={{ fontFamily: "var(--font-persian)" }} onClick={() => { setMobileOpen(false); setContactOpen(true); }}>تماس با ما</button>
-          <div className="h-px my-1 bg-white/[0.06]" />
+          <Link href="/" className="text-[14px] font-medium text-white/80 no-underline px-4 py-2.5 rounded-xl hover:bg-white/6" style={{ fontFamily: "var(--font-persian)" }} onClick={() => setMobileOpen(false)}>خانه</Link>
+          <Link href="/services" className="text-[14px] font-medium text-white/80 no-underline px-4 py-2.5 rounded-xl hover:bg-white/6" style={{ fontFamily: "var(--font-persian)" }} onClick={() => setMobileOpen(false)}>خدمات</Link>
+          <Link href="/projects" className="text-[14px] font-medium text-white/80 no-underline px-4 py-2.5 rounded-xl hover:bg-white/6" style={{ fontFamily: "var(--font-persian)" }} onClick={() => setMobileOpen(false)}>نمونه‌کارها</Link>
+          <Link href="/calculator" className="text-[14px] font-medium text-white/80 no-underline px-4 py-2.5 rounded-xl hover:bg-white/6" style={{ fontFamily: "var(--font-persian)" }} onClick={() => setMobileOpen(false)}>تخمین هزینه</Link>
+          <Link href="/blog" className="text-[14px] font-medium text-white/80 no-underline px-4 py-2.5 rounded-xl hover:bg-white/6" style={{ fontFamily: "var(--font-persian)" }} onClick={() => setMobileOpen(false)}>مجله / بلاگ</Link>
+          <Link href="/rules" className="text-[14px] font-medium text-white/80 no-underline px-4 py-2.5 rounded-xl hover:bg-white/6" style={{ fontFamily: "var(--font-persian)" }} onClick={() => setMobileOpen(false)}>قوانین و ضمانت‌ها</Link>
+          <button className="text-[14px] font-medium text-white/80 px-4 py-2.5 rounded-xl hover:bg-white/6 text-right border-0 bg-transparent cursor-pointer" style={{ fontFamily: "var(--font-persian)" }} onClick={() => { setMobileOpen(false); setContactOpen(true); }}>تماس با ما</button>
+          <div className="h-px my-1 bg-white/6" />
           <Link href="/contact" className="text-center text-[13px] font-semibold text-white no-underline px-5 py-2.5 rounded-xl" style={{ fontFamily: "var(--font-persian)", background: "var(--oak)" }} onClick={() => setMobileOpen(false)}>درخواست مشاوره رایگان</Link>
         </div>
       )}
 
       {(megaOpen || contactOpen) && (
-        <div className="fixed inset-0 z-[90]" style={{ background: "rgba(0,0,0,0.25)" }} onClick={() => { setMegaOpen(false); setContactOpen(false); }} />
+        <div className="fixed inset-0 z-90" style={{ background: "rgba(0,0,0,0.5)" }} onClick={() => { setMegaOpen(false); setContactOpen(false); }} />
       )}
 
       {contactOpen && (
         <div
           dir="rtl"
-          className="fixed z-[200] left-1/2 -translate-x-1/2 w-[400px] p-7 rounded-2xl"
+          className="fixed z-200 left-1/2 -translate-x-1/2 w-100 p-7 rounded-2xl"
           style={{
-            top: "50%", transform: "translate(-50%, -50%)",
+            top: "40%", transform: "translate(-50%, -50%)",
             background: "rgba(var(--matte-slate-rgb),0.92)", backdropFilter: "blur(40px)", WebkitBackdropFilter: "blur(40px)",
             border: "1px solid rgba(255,255,255,0.08)", boxShadow: "0 32px 80px rgba(0,0,0,0.5)",
             animation: "modal-in 0.25s cubic-bezier(0.22,1,0.36,1)",
@@ -251,7 +253,7 @@ export default function Navbar() {
           <div className="flex items-center justify-between mb-5">
             <h3 className="text-base font-bold m-0 text-white/90" style={{ fontFamily: "var(--font-persian)" }}>پیام سریع</h3>
             <button
-              className="flex items-center justify-center w-7 h-7 rounded-lg text-white/50 bg-white/[0.05] border-none cursor-pointer transition-colors hover:bg-white/[0.1] hover:text-white"
+              className="flex items-center justify-center w-7 h-7 rounded-lg text-white/50 bg-white/5 border-none cursor-pointer transition-colors hover:bg-white/10 hover:text-white"
               onClick={() => setContactOpen(false)}
               aria-label="بستن"
             >
@@ -262,18 +264,39 @@ export default function Navbar() {
             فرم را پر کنید، ظرف ۲۴ ساعت با شما تماس می‌گیریم.
           </p>
           <form className="flex flex-col gap-3.5" onSubmit={(e) => e.preventDefault()}>
-            <input type="text" placeholder="نام و نام خانوادگی" className="w-full h-10 px-4 text-[13px] text-white/90 bg-white/[0.04] rounded-xl outline-none transition-all duration-200 placeholder:text-white/20 focus:bg-white/[0.07] focus:ring-1 focus:ring-white/10" style={{ fontFamily: "var(--font-persian)", border: "1px solid rgba(255,255,255,0.06)" }} required />
-            <input type="tel" placeholder="شماره تماس" dir="ltr" className="w-full h-10 px-4 text-[13px] text-white/90 bg-white/[0.04] rounded-xl outline-none transition-all duration-200 placeholder:text-white/20 focus:bg-white/[0.07] focus:ring-1 focus:ring-white/10" style={{ fontFamily: "var(--font-persian)", border: "1px solid rgba(255,255,255,0.06)" }} required />
-            <textarea rows={3} placeholder="توضیح مختصر درباره پروژه..." className="w-full px-4 py-2.5 text-[13px] text-white/90 bg-white/[0.04] rounded-xl outline-none transition-all duration-200 resize-y min-h-[70px] placeholder:text-white/20 focus:bg-white/[0.07] focus:ring-1 focus:ring-white/10" style={{ fontFamily: "var(--font-persian)", border: "1px solid rgba(255,255,255,0.06)" }} />
-            <button type="submit" className="w-full h-10 text-[13px] font-semibold text-white rounded-xl cursor-pointer transition-all duration-200 border-none hover:bg-[var(--oak-hover)] hover:-translate-y-px active:translate-y-0" style={{ fontFamily: "var(--font-persian)", background: "var(--oak)" }}>ارسال پیام</button>
+            <input type="text" placeholder="نام و نام خانوادگی" className="w-full h-10 px-4 text-[13px] text-white/90 bg-white/4 rounded-xl outline-none transition-all duration-200 placeholder:text-white/20 focus:bg-white/[0.07] focus:ring-1 focus:ring-white/10" style={{ fontFamily: "var(--font-persian)", border: "1px solid rgba(255,255,255,0.06)" }} required />
+            <input type="tel" placeholder="شماره تماس" dir="ltr" className="w-full h-10 px-4 text-[13px] text-white/90 bg-white/4 rounded-xl outline-none transition-all duration-200 placeholder:text-white/20 focus:bg-white/[0.07] focus:ring-1 focus:ring-white/10" style={{ fontFamily: "var(--font-persian)", border: "1px solid rgba(255,255,255,0.06)" }} required />
+            <textarea rows={3} placeholder="توضیح مختصر درباره پروژه..." className="w-full px-4 py-2.5 text-[13px] text-white/90 bg-white/4 rounded-xl outline-none transition-all duration-200 resize-y min-h-17.5 placeholder:text-white/20 focus:bg-white/[0.07] focus:ring-1 focus:ring-white/10" style={{ fontFamily: "var(--font-persian)", border: "1px solid rgba(255,255,255,0.06)" }} />
+            <button type="submit" className="w-full h-10 text-[13px] font-semibold text-white rounded-xl cursor-pointer transition-all duration-200 border-none hover:bg-(--oak-hover) hover:-translate-y-px active:translate-y-0" style={{ fontFamily: "var(--font-persian)", background: "var(--oak)" }}>ارسال پیام</button>
           </form>
           <p className="text-[11px] text-white/20 m-0 mt-3.5 text-center" style={{ fontFamily: "var(--font-persian)" }}>بدون تعهد · پاسخ در ۲۴ ساعت</p>
         </div>
       )}
 
       <style>{`
+        .nav-item {
+          font-family: var(--font-persian);
+          font-size: 13px;
+          font-weight: 500;
+          color: rgba(255,255,255,0.7);
+          text-decoration: none;
+          padding: 5px 12px;
+          border-radius: 8px;
+          border: 0;
+          background: transparent;
+          cursor: pointer;
+          transition: all 0.2s;
+          display: inline-flex;
+          align-items: center;
+          height: 32px;
+          white-space: nowrap;
+        }
+        .nav-item:hover {
+          color: #fff;
+          background: rgba(255,255,255,0.06);
+        }
         @keyframes mega-in {
-          from { opacity: 0; transform: translateY(8px); }
+          from { opacity: 0; transform: translateY(6px); }
           to { opacity: 1; transform: translateY(0); }
         }
         @keyframes modal-in {

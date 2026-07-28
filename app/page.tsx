@@ -1,4 +1,4 @@
-import Hero from "./components/Hero";
+import ScrollRenovationHero from "./components/ScrollRenovationHero";
 import FeaturedPortfolio from "./components/FeaturedPortfolio";
 import Calculator from "./components/Calculator";
 import ServicesMaterialGrid from "./components/ServicesMaterialGrid";
@@ -12,8 +12,8 @@ export default function Home() {
     <main className="flex flex-col flex-1">
       {/* 1. Navbar — rendered in layout.tsx */}
 
-      {/* 2. Hero with integrated Before/After slider */}
-      <Hero />
+      {/* 2. Scroll-driven cinematic renovation hero */}
+      <ScrollRenovationHero />
 
       {/* 3. Featured Portfolio */}
       <FeaturedPortfolio />
@@ -21,17 +21,17 @@ export default function Home() {
       {/* 4. Interactive Cost Estimator + Lead Form */}
       <Calculator />
 
+      {/* 6. Process Timeline */}
+      <ProcessTimeline />
       {/* 5. Services & Material Palette */}
       <ServicesMaterialGrid />
 
-      {/* 6. Process Timeline */}
-      <ProcessTimeline />
-
-      {/* 7. Rules & Guarantees */}
-      <RulesGuarantees />
 
       {/* 8. Quick Contact & Lead Form */}
       <QuickContact />
+      {/* 7. Rules & Guarantees */}
+      <RulesGuarantees />
+
 
       {/* 9. Footer */}
       <Footer />

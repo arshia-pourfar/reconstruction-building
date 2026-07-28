@@ -17,9 +17,9 @@
   --warm-gray: #EDEAE5;
   --border: rgba(0, 0, 0, 0.06);
   --border-rgb: 0, 0, 0;
-  --blue-cta: #2563EB;
-  --blue-cta-rgb: 37, 99, 235;
-  --blue-cta-hover: #1D4ED8;
+  --blue-cta: #A67C52;
+  --blue-cta-rgb: 166, 124, 82;
+  --blue-cta-hover: #C49D70;
   --background: var(--off-white);
   --foreground: var(--matte-slate);
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
@@ -422,11 +422,12 @@ body {
   color: #fff;
   background: var(--blue-cta);
   border: none;
+  box-shadow: 0 4px 20px rgba(var(--blue-cta-rgb),0.25);
 }
 .hero-v2-cta:hover {
   background: var(--blue-cta-hover);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 8px 32px rgba(var(--blue-cta-rgb), 0.35);
 }
 .hero-v2-cta:active { transform: translateY(0); box-shadow: none; }
 .hero-v2-cta:focus-visible { outline: 2px solid var(--blue-cta); outline-offset: 3px; }
@@ -643,7 +644,8 @@ body {
    FOOTER
    ══════════════════════════════════════════════════════════ */
 
-.footer { @apply w-full; background: var(--matte-slate); padding: 80px var(--side-pad) 40px; }
+.footer { @apply w-full relative; background: var(--matte-slate); padding: 80px var(--side-pad) 40px; }
+.footer::before { content: ''; @apply absolute top-0 left-0 right-0 h-px; background: linear-gradient(90deg, transparent, rgba(var(--oak-rgb),0.3), transparent); }
 .footer-inner { max-width: var(--container-max); margin: 0 auto; }
 .footer-columns { @apply grid gap-12; grid-template-columns: 1.6fr 1fr 1fr 1.4fr; }
 .footer-brand { @apply flex flex-col gap-3; }

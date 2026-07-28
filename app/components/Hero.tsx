@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useMemo, useCallback, useState } from "react";
+import { useEffect, useRef, useMemo, useCallback } from "react";
 import gsap from "gsap";
 import BeforeAfter from "./BeforeAfter";
 
@@ -13,67 +13,28 @@ export default function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const glassRef = useRef<HTMLDivElement>(null);
-  const glassRef2 = useRef<HTMLDivElement>(null);
-  const loaderRef = useRef<HTMLDivElement>(null);
-  const heroRef = useRef<HTMLDivElement>(null);
   const triggeredRef = useRef<Set<number>>(new Set());
   const cascadingRef = useRef(false);
   const glassHiddenRef = useRef(false);
-  const [loaded, setLoaded] = useState(false);
-  const isTouchRef = useRef(false);
 
   useEffect(() => {
-    isTouchRef.current = matchMedia("(pointer:coarse)").matches;
-  }, []);
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = "/projects/before-p1.png";
-    const img2 = new Image();
-    img2.src = "/projects/after-p1.png";
-
-    let resolved = false;
-    const done = () => { if (!resolved) { resolved = true; setLoaded(true); } };
-
-    let imgLoaded = 0;
-    const onLoad = () => { imgLoaded++; if (imgLoaded >= 2) done(); };
-
-    if (img.complete) onLoad(); else img.onload = onLoad;
-    if (img2.complete) onLoad(); else img2.onload = onLoad;
-
-    const timer = setTimeout(done, 2500);
-
-    return () => { clearTimeout(timer); img.onload = null; img2.onload = null; };
-  }, []);
-
-  useEffect(() => {
-    if (!loaded) return;
-    const tl = gsap.timeline();
-    tl.to(loaderRef.current, { opacity: 0, duration: 0.6, ease: "power2.out", onComplete: () => { if (loaderRef.current) loaderRef.current.style.display = "none"; } });
-    tl.fromTo(heroRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, "-=0.2");
     const el = sectionRef.current;
-    if (el) {
-      const items = el.querySelectorAll("[data-anim]");
-      gsap.fromTo(items, { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.13, ease: "power3.out", delay: 0.3 });
-    }
-  }, [loaded]);
-
-  const [gridSize] = useState(() => {
-    if (typeof window === "undefined") return { cols: 10, rows: 14 };
-    return window.innerWidth < 640 ? { cols: 5, rows: 10 } : window.innerWidth < 1024 ? { cols: 8, rows: 12 } : { cols: 10, rows: 14 };
-  });
+    if (!el) return;
+    const items = el.querySelectorAll("[data-anim]");
+    gsap.fromTo(items, { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.13, ease: "power3.out" });
+  }, []);
 
   const bricks = useMemo(() => {
     const hash = (n: number) => { const x = Math.sin(n * 9301 + 49297) * 49297; return x - Math.floor(x); };
     const items: Brick[] = [];
-    const { cols, rows } = gridSize;
+    const cols = 10, rows = 14;
     for (let r = 0; r < rows; r++)
       for (let c = 0; c < cols; c++) {
         const s = r * cols + c;
-        items.push({ id: s, row: r, col: c, delay: r * 0.035 + c * 0.015 + hash(s + 1) * 0.06, fallY: 60 + hash(s + 2) * 80, rot: (hash(s + 3) - 0.5) * 14, drift: (hash(s + 4) - 0.5) * 30 });
+        items.push({ id: s, row: r, col: c, delay: r * 0.035 + c * 0.015 + hash(s + 1) * 0.06, fallY: 100 + hash(s + 2) * 140, rot: (hash(s + 3) - 0.5) * 14, drift: (hash(s + 4) - 0.5) * 50 });
       }
     return items;
-  }, [gridSize]);
+  }, []);
 
   const fallBrick = useCallback((el: Element, b: Brick, dur: number, d: number) => {
     gsap.set(el, { transformOrigin: "50% 100%" });
@@ -86,23 +47,20 @@ export default function Hero() {
   }, []);
 
   const hideGlass = useCallback(() => {
-    if (glassHiddenRef.current) return;
+    if (glassHiddenRef.current || !glassRef.current) return;
     glassHiddenRef.current = true;
-    cascadingRef.current = true;
-    if (glassRef.current) gsap.to(glassRef.current, { opacity: 0, filter: "blur(20px)", duration: 1.2, ease: "power2.out", delay: 0.4 });
-    if (glassRef2.current) gsap.to(glassRef2.current, { opacity: 0, filter: "blur(20px)", duration: 1.2, ease: "power2.out", delay: 0.4 });
+    gsap.to(glassRef.current, { opacity: 0, filter: "blur(20px)", duration: 1.2, ease: "power2.out", delay: 0.4 });
   }, []);
 
   const handlePointerMove = useCallback((e: React.PointerEvent) => {
-    if (isTouchRef.current || cascadingRef.current) return;
+    if (cascadingRef.current) return;
     const grid = gridRef.current;
     if (!grid) return;
     const rect = grid.getBoundingClientRect();
-    const { cols, rows } = gridSize;
-    const mx = ((rect.right - e.clientX) / rect.width) * cols;
-    const my = ((e.clientY - rect.top) / rect.height) * rows;
+    const mx = ((e.clientX - rect.left) / rect.width) * 10;
+    const my = ((e.clientY - rect.top) / rect.height) * 14;
     const radius = 2.8;
-    const total = cols * rows;
+    const total = 140;
 
     for (const b of bricks) {
       if (triggeredRef.current.has(b.id)) continue;
@@ -123,24 +81,9 @@ export default function Hero() {
       }
       hideGlass();
     }
-  }, [bricks, fallBrick, hideGlass, gridSize]);
+  }, [bricks, fallBrick, hideGlass]);
 
   return (
-    <>
-    {/* Loading screen */}
-    <div ref={loaderRef} className="fixed inset-0 z-[9999] flex flex-col items-center justify-center" style={{ background: "var(--matte-slate)" }}>
-      <div className="flex flex-col items-center gap-6">
-        <div className="flex gap-[3px]">
-          {[...Array(5)].map((_, i) => (
-            <div key={i} className="w-[18px] h-[14px] bg-[var(--oak)] rounded-[2px] opacity-0 animate-pulse" style={{ animationDelay: `${i * 0.15}s`, animationDuration: "1s" }} />
-          ))}
-        </div>
-        <span className="text-[13px] font-semibold tracking-[3px] uppercase" style={{ color: "rgba(var(--off-white-rgb),0.25)" }}>بارگذاری</span>
-      </div>
-    </div>
-
-    {/* Hero section wrapper */}
-    <div ref={heroRef} className="opacity-0" style={{ opacity: 0 }}>
     <section ref={sectionRef} className="relative w-full h-screen overflow-hidden bg-(--matte-slate) group" onPointerMove={handlePointerMove}>
       {/* Background gradient */}
       <div className="absolute inset-0 z-0" style={{
@@ -160,12 +103,9 @@ export default function Hero() {
 
       {/* Text overlay */}
       <div className="absolute inset-y-0 right-0 z-3 w-full pointer-events-none flex items-center" style={{ padding: "clamp(32px, 6vw, 80px) clamp(20px, 5vw, 64px)" }}>
-        {/* Glass backdrop — mobile (no bricks, tap to dismiss) */}
-        <div ref={glassRef} className="absolute -inset-6 rounded-2xl overflow-hidden pointer-events-auto md:hidden" style={{ background: "rgba(27,29,31,0.35)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", cursor: "pointer" }} onClick={() => { if (isTouchRef.current) hideGlass(); }} />
-
-        {/* Desktop brick wall */}
-        <div ref={glassRef2} className="absolute -inset-6 rounded-2xl overflow-hidden pointer-events-none max-md:hidden" style={{ background: "rgba(27,29,31,0.35)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)" }}>
-          <div ref={gridRef} className="absolute inset-0 grid" style={{ gridTemplateColumns: `repeat(${gridSize.cols},1fr)`, gridTemplateRows: `repeat(${gridSize.rows},1fr)` }}>
+        {/* Brick wall */}
+        <div ref={glassRef} className="absolute -inset-6 rounded-2xl overflow-hidden pointer-events-none" style={{ background: "rgba(27,29,31,0.35)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)" }}>
+          <div ref={gridRef} className="absolute inset-0 grid" style={{ gridTemplateColumns: "repeat(10,1fr)", gridTemplateRows: "repeat(14,1fr)" }}>
             {bricks.map((b) => (
               <div key={b.id} data-brick={b.id}
                 style={{ gridColumn: b.col + 1, gridRow: b.row + 1, background: "rgba(246,244,241,0.06)", border: "1px solid rgba(246,244,241,0.04)", borderRadius: "2px" }}
@@ -173,7 +113,7 @@ export default function Hero() {
             ))}
           </div>
         </div>
-        <div className="max-w-145 ml-auto relative" style={{ direction: "rtl" }}>
+        <div className="max-w-145 mr-auto relative" style={{ direction: "rtl" }}>
           <div data-anim className="hero-v2-eyebrow pointer-events-auto" style={{ marginBottom: "16px" }}>
             <span className="hero-v2-eyebrow-dot animate-pulse" />
             <span>بازسازی سه‌بعدی تعاملی</span>
@@ -216,7 +156,5 @@ export default function Hero() {
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 z-4 pointer-events-none" style={{ background: "linear-gradient(to top, var(--matte-slate), transparent)" }} />
     </section>
-    </div>
-    </>
   );
 }
