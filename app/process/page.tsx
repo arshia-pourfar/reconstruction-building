@@ -1,4 +1,6 @@
 import StructuraFooter from "../components/StructuraFooter";
+import RoadmapLine from "../components/RoadmapLine";
+import WorkflowSteps from "../components/WorkflowSteps";
 
 const RULES = [
   {
@@ -81,7 +83,7 @@ export default function ProcessPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 items-center">
               <button
-                className="bg-tertiary text-on-primary px-10 py-4 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-secondary transition-all"
+                className="bg-tertiary text-on-primary px-10 py-4 rounded-lg font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:shadow-[0_4px_20px_rgba(99,102,241,0.3)] hover:brightness-110 transition-all"
                 style={{ boxShadow: "0 2px 8px rgba(99,102,241,0.15)" }}
               >
                 مشاهده مشخصات
@@ -151,67 +153,10 @@ export default function ProcessPage() {
       </section>
 
       {/* ═══ STEPS TO TRANSFORMATION ══════════════════ */}
-      <section className="py-24 bg-surface-container-low">
-        <div className="container mx-auto px-4 md:px-16 max-w-[1440px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
-            <div>
-              <span className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-secondary mb-4 block">
-                خط لوله گردش کار
-              </span>
-              <h2 className="font-[family-name:var(--font-vazirmatn)] text-[24px] md:text-[40px] leading-[36px] md:leading-[56px] font-extrabold mb-12">
-                مراحل تبدیل
-              </h2>
-              <div className="space-y-12">
-                {STEPS.map((step, i) => (
-                  <div
-                    key={step.number}
-                    className="relative pr-16 group"
-                  >
-                    {i < STEPS.length - 1 && (
-                      <div
-                        className="absolute right-5 top-10 bottom-[-24px] w-px bg-outline-variant"
-                      />
-                    )}
-                    <div
-                      className="absolute right-0 top-0 w-10 h-10 border border-outline-variant rounded-xl bg-background flex items-center justify-center font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 z-10 group-hover:bg-secondary group-hover:text-white transition-colors"
-                    >
-                      {step.number}
-                    </div>
-                    <h4 className="font-[family-name:var(--font-vazirmatn)] text-[24px] leading-[36px] font-extrabold mb-2">
-                      {step.title}
-                    </h4>
-                    <p className="font-[family-name:var(--font-vazirmatn)] text-[16px] leading-[24px] text-on-surface-variant">
-                      {step.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
+      <WorkflowSteps />
 
-            <div className="relative">
-              <div
-                className="aspect-[4/5] bg-surface-container overflow-hidden rounded-2xl border border-outline-variant"
-                style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.08)" }}
-              >
-                <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkP_JwtttTsf8FIRPKao9nqL6UykrluSRTqdDnDDnZtEZBUmn_5vC1v-VlTqBJq8QbFkkiLgScl498NmP3U5PMvvI2PGAIxKrAxvs9ss7mB-5ig5e8GBLqd9itjCiyLOl6GLvjpXGDiBrSYCKfE-QuqogzcvuPOideBaw5vpH7UejVDxLvlOHczoY0jFph1rKqJnOf5zfE02dBEWlgiDnX1xTci9egQ7XtuAcvBo9Peot6Vo9qGbl3LCNotH_uyzo2KBP5L9jiq-tG"
-                  alt="تقویت ساختاری"
-                  className="w-full h-full object-cover grayscale-[50%] hover:grayscale-0 transition-all duration-700"
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 bg-tertiary text-on-primary p-8 max-w-xs rounded-2xl">
-                <div className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-secondary mb-2">
-                  شکل_۰۶A
-                </div>
-                <p className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-[20px] italic opacity-80">
-                  &quot;فاز تقویت ساختاری با استفاده از تیرهای فولادی تقویت
-                  شده و سیستم‌های براکتینگ جانبی.&quot;
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ═══ ROADMAP TO REALITY ══════════════════════ */}
+      <RoadmapLine />
 
       {/* ═══ CTA ═══════════════════════════════════════ */}
       <section className="py-24 border-y border-outline-variant">
@@ -224,10 +169,10 @@ export default function ProcessPage() {
             ساختاری خود را امروز شروع کنید.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <button className="bg-secondary text-white px-12 py-5 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-primary transition-all">
+            <button className="bg-secondary text-white px-12 py-5 rounded-lg font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-primary transition-all">
               شروع مشاوره
             </button>
-            <button className="border border-outline-variant text-tertiary px-12 py-5 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-surface-container-highest transition-all">
+            <button className="border border-outline-variant text-tertiary px-12 py-5 rounded-lg font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-surface-container-highest transition-all">
               دانلود بروشور
             </button>
           </div>

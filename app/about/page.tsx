@@ -255,7 +255,7 @@ export default function AboutPage() {
           آماده تبدیل فضا از طریق لنز مهندسی ساختاری هستید؟
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-6">
-          <button className="bg-primary text-on-primary rounded-xl px-10 py-5 font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 flex items-center justify-center gap-3">
+          <button className="bg-primary text-on-primary rounded-lg px-10 py-5 font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 flex items-center justify-center gap-3">
             مشاهده نمونه کارها
             <svg
               className="rotate-180"
@@ -269,7 +269,7 @@ export default function AboutPage() {
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </button>
-          <button className="bg-surface border border-outline-variant text-primary rounded-xl px-10 py-5 font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-surface-container transition-all">
+          <button className="bg-surface border border-outline-variant text-primary rounded-lg px-10 py-5 font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-surface-container transition-all">
             مشاوره
           </button>
         </div>

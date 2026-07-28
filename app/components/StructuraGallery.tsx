@@ -30,7 +30,7 @@ export default function StructuraGallery() {
                 خصوصی.
               </p>
             </div>
-            <button className="w-full py-4 border border-tertiary text-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 uppercase rounded-xl hover:bg-tertiary hover:text-on-tertiary transition-all mt-8">
+            <button className="w-full py-4 border border-tertiary text-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 uppercase rounded-lg hover:bg-tertiary hover:text-on-tertiary transition-all mt-8">
               مشاهده پروژه
             </button>
           </div>

@@ -165,7 +165,7 @@ export default function CalculatorPage() {
                     <button
                       key={s.id}
                       onClick={() => setStyleId(s.id)}
-                      className={`font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-6 py-3 border border-outline-variant rounded-xl transition-all ${
+                      className={`font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-6 py-3 border border-outline-variant rounded-lg transition-all ${
                         styleId === s.id
                           ? "bg-tertiary text-on-tertiary border-tertiary"
                           : "bg-transparent text-on-surface hover:border-primary"
@@ -195,7 +195,7 @@ export default function CalculatorPage() {
               </p>
               <Link
                 href="/contact"
-                className="inline-block bg-tertiary text-on-tertiary rounded-xl px-8 py-4 font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-center hover:bg-on-secondary-container hover:text-on-primary transition-all active:scale-95"
+                className="inline-block bg-tertiary text-on-tertiary rounded-lg px-8 py-4 font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-center hover:shadow-[0_4px_20px_rgba(99,102,241,0.25)] hover:brightness-110 transition-all active:scale-95"
               >
                 مشاوره رایگان
               </Link>

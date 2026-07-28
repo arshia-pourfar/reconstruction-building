@@ -229,12 +229,12 @@ export default function BlogPage() {
               <input
                 type="email"
                 placeholder="ایمیل خود را وارد کنید"
-                className="flex-1 bg-transparent border border-on-primary text-on-primary placeholder:text-on-primary-container px-6 py-4 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 focus:outline-none focus:border-secondary-container transition-colors"
+                className="flex-1 bg-transparent border border-on-primary text-on-primary placeholder:text-on-primary-container px-6 py-4 rounded-lg font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 focus:outline-none focus:border-secondary-container transition-colors"
                 required
               />
               <button
                 type="submit"
-                className="bg-tertiary text-on-tertiary rounded-xl px-8 py-4 font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-on-secondary-container hover:text-on-primary transition-all active:scale-95"
+                className="bg-tertiary text-on-tertiary rounded-lg px-8 py-4 font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:shadow-[0_4px_20px_rgba(99,102,241,0.25)] hover:brightness-110 transition-all active:scale-95"
               >
                 عضویت
               </button>

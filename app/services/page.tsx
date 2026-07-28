@@ -285,7 +285,7 @@ export default function ServicesPage() {
                   هر تبدیل ساختاری با یک مکالمه شروع می‌شود. امروز مشاوره با
                   مهندسان اصلی ما را رزرو کنید.
                 </p>
-                <button className="bg-primary text-on-primary px-12 py-5 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-secondary-container transition-all active:scale-95">
+                <button className="bg-primary text-on-primary px-12 py-5 rounded-lg font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-secondary-container transition-all active:scale-95">
                   شروع پروژه
                 </button>
               </div>

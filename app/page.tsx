@@ -1,4 +1,4 @@
-import StructuraHero from "./components/StructuraHero";
+import CanvasHero from "./components/CanvasHero";
 import StructuraServices from "./components/StructuraServices";
 import StructuraGallery from "./components/StructuraGallery";
 import StructuraProcess from "./components/StructuraProcess";
@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <ScrollReveal>
       <main className="flex flex-col flex-1">
-        <StructuraHero />
+        <CanvasHero />
         <StructuraServices />
         <StructuraGallery />
         <StructuraProcess />

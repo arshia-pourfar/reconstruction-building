@@ -222,7 +222,7 @@ export default function ProjectDetailPage() {
                 transform: "translateX(50%)",
               }}
             >
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-secondary flex items-center justify-center border border-outline-variant rounded-xl">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-secondary flex items-center justify-center border border-outline-variant rounded-lg">
                 <svg
                   className="text-white text-sm"
                   width="16"
@@ -317,7 +317,7 @@ export default function ProjectDetailPage() {
               ))}
             </ul>
             <div className="mt-12 pt-8 border-t border-on-primary-container">
-              <button className="w-full bg-tertiary text-on-tertiary py-4 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:brightness-110 transition-all">
+              <button className="w-full bg-tertiary text-on-tertiary py-4 rounded-lg font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:shadow-[0_4px_20px_rgba(99,102,241,0.25)] hover:brightness-110 transition-all">
                 استعلام پروژه
               </button>
             </div>

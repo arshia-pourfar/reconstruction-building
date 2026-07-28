@@ -151,7 +151,7 @@ export default function StructuraContact() {
 
               <button
                 type="submit"
-                className="w-full bg-tertiary text-on-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 py-5 rounded-xl hover:brightness-110 transition-all mt-4"
+                className="w-full bg-tertiary text-on-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 py-5 rounded-lg hover:shadow-[0_4px_20px_rgba(99,102,241,0.25)] hover:brightness-110 transition-all mt-4"
               >
                 ارسال درخواست
               </button>

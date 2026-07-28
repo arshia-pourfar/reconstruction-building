@@ -3,7 +3,7 @@ export default function StructuraHero() {
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-primary">
       {/* Content */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 md:px-16 text-center">
-        <span className="inline-block font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-secondary-fixed-dim border border-outline-variant px-4 py-1 mb-6 rounded-xl">
+        <span className="inline-block font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-secondary-fixed-dim border border-outline-variant px-4 py-1 mb-6 rounded-lg">
           بازسازی ساختاری لوکس
         </span>
 
@@ -12,10 +12,10 @@ export default function StructuraHero() {
         </h1>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-          <button className="bg-tertiary text-on-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-10 py-4 rounded-xl hover:brightness-110 transition-all">
+          <button className="bg-tertiary text-on-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-10 py-4 rounded-lg hover:shadow-[0_4px_20px_rgba(99,102,241,0.3)] hover:brightness-110 transition-all">
             مشاهده نمونه کارها
           </button>
-          <button className="border border-on-primary text-on-primary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-10 py-4 rounded-xl hover:bg-on-primary hover:text-primary transition-all">
+          <button className="border border-on-primary text-on-primary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-10 py-4 rounded-lg hover:bg-on-primary hover:text-primary transition-all">
             فرآیند ما
           </button>
         </div>

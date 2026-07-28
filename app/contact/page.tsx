@@ -87,7 +87,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     placeholder="نام خود را وارد کنید"
-                    className="w-full border border-outline-variant bg-transparent px-4 py-3 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 focus:outline-none focus:border-primary transition-colors"
+                    className="w-full border border-outline-variant bg-transparent px-4 py-3 rounded-lg font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 focus:outline-none focus:border-primary transition-colors"
                     required
                   />
                 </div>
@@ -100,7 +100,7 @@ export default function ContactPage() {
                     <input
                       type="email"
                       placeholder="example@email.com"
-                      className="w-full border border-outline-variant bg-transparent px-4 py-3 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 focus:outline-none focus:border-primary transition-colors"
+                      className="w-full border border-outline-variant bg-transparent px-4 py-3 rounded-lg font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 focus:outline-none focus:border-primary transition-colors"
                       required
                     />
                   </div>
@@ -111,7 +111,7 @@ export default function ContactPage() {
                     <input
                       type="tel"
                       placeholder="۰۹۱۲۱۲۳۴۵۶۷"
-                      className="w-full border border-outline-variant bg-transparent px-4 py-3 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 focus:outline-none focus:border-primary transition-colors"
+                      className="w-full border border-outline-variant bg-transparent px-4 py-3 rounded-lg font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 focus:outline-none focus:border-primary transition-colors"
                     />
                   </div>
                 </div>
@@ -120,7 +120,7 @@ export default function ContactPage() {
                   <label className="font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 text-primary block mb-2">
                     نوع پروژه
                   </label>
-                  <select className="w-full border border-outline-variant bg-transparent px-4 py-3 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 focus:outline-none focus:border-primary transition-colors appearance-none">
+                  <select className="w-full border border-outline-variant bg-transparent px-4 py-3 rounded-lg font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 focus:outline-none focus:border-primary transition-colors appearance-none">
                     {projectTypes.map((t) => (
                       <option key={t} value={t}>
                         {t}
@@ -136,13 +136,13 @@ export default function ContactPage() {
                   <textarea
                     rows={5}
                     placeholder="درباره فضای خود، دیدگاهتان و هر سؤالی که دارید برای ما بنویسید..."
-                    className="w-full border border-outline-variant bg-transparent px-4 py-3 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 focus:outline-none focus:border-primary transition-colors resize-none"
+                    className="w-full border border-outline-variant bg-transparent px-4 py-3 rounded-lg font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 focus:outline-none focus:border-primary transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-tertiary text-on-tertiary px-8 py-4 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:bg-secondary-container transition-all active:scale-95"
+                  className="w-full bg-tertiary text-on-tertiary px-8 py-4 rounded-lg font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 hover:shadow-[0_4px_20px_rgba(99,102,241,0.25)] hover:brightness-110 transition-all active:scale-95"
                 >
                   ارسال پیام
                 </button>

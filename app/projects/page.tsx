@@ -145,10 +145,10 @@ export default function ProjectsPage() {
               فضایی بسازید که آزمون زمان را تحمل کند.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
-              <button className="bg-tertiary text-on-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-10 py-5 rounded-xl hover:bg-white hover:text-primary transition-all">
+              <button className="bg-tertiary text-on-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-10 py-5 rounded-lg hover:shadow-[0_4px_20px_rgba(99,102,241,0.3)] hover:brightness-110 transition-all">
                 شروع مشاوره
               </button>
-              <button className="border border-white text-white font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-10 py-5 rounded-xl hover:bg-white/10 transition-all">
+              <button className="border border-white text-white font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-10 py-5 rounded-lg hover:bg-white/10 transition-all">
                 فرآیند ما
               </button>
             </div>

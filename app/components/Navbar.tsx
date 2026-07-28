@@ -87,7 +87,7 @@ export default function Navbar() {
           {/* CTA */}
           <a
             href="/contact"
-            className="hidden md:inline-block bg-tertiary text-on-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-6 py-3 rounded-xl hover:shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all duration-200"
+            className="hidden md:inline-block bg-tertiary text-on-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-6 py-3 rounded-lg hover:shadow-[0_4px_20px_rgba(99,102,241,0.25)] hover:brightness-110 transition-all duration-200"
           >
             دریافت مشاوره
           </a>
@@ -148,7 +148,7 @@ export default function Navbar() {
             })}
             <a
               href="/contact"
-              className="mt-4 bg-tertiary text-on-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-6 py-4 text-center rounded-xl transition-all"
+              className="mt-4 bg-tertiary text-on-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 px-6 py-4 text-center rounded-lg hover:brightness-110 transition-all"
             >
               دریافت مشاوره
             </a>

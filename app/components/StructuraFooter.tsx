@@ -22,7 +22,7 @@ export default function StructuraFooter() {
           <div className="flex gap-4">
             <a
               href="#"
-              className="w-10 h-10 border border-on-primary-container/30 rounded-xl flex items-center justify-center hover:bg-secondary transition-colors"
+              className="w-10 h-10 border border-on-primary-container/30 rounded-lg flex items-center justify-center hover:bg-secondary transition-colors"
             >
               <svg
                 className="text-on-primary"
@@ -42,7 +42,7 @@ export default function StructuraFooter() {
             </a>
             <a
               href="#"
-              className="w-10 h-10 border border-on-primary-container/30 rounded-xl flex items-center justify-center hover:bg-secondary transition-colors"
+              className="w-10 h-10 border border-on-primary-container/30 rounded-lg flex items-center justify-center hover:bg-secondary transition-colors"
             >
               <svg
                 className="text-on-primary"
@@ -110,9 +110,9 @@ export default function StructuraFooter() {
             <input
               type="email"
               placeholder="ایمیل شما"
-              className="bg-transparent border border-on-primary-container/30 p-3 rounded-xl font-[family-name:var(--font-vazirmatn)] text-[12px] leading-4 text-on-primary focus:ring-1 focus:ring-secondary focus:border-secondary outline-none"
+              className="bg-transparent border border-on-primary-container/30 p-3 rounded-lg font-[family-name:var(--font-vazirmatn)] text-[12px] leading-4 text-on-primary focus:ring-1 focus:ring-secondary focus:border-secondary outline-none"
             />
-            <button className="bg-tertiary text-on-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 py-3 rounded-xl hover:brightness-110 transition-all">
+            <button className="bg-tertiary text-on-tertiary font-[family-name:var(--font-vazirmatn)] text-[14px] leading-5 py-3 rounded-lg hover:shadow-[0_4px_20px_rgba(99,102,241,0.25)] hover:brightness-110 transition-all">
               عضویت
             </button>
           </div>
