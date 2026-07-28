@@ -1,17 +1,30 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import ScrollProvider from "./components/ScrollProvider";
 
-const inter = Inter({
-  variable: "--font-inter",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
+  weight: ["700", "800"],
+});
+
+const hankenGrotesk = Hanken_Grotesk({
+  variable: "--font-hanken",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  subsets: ["latin"],
+  weight: ["500"],
 });
 
 export const metadata: Metadata = {
-  title: "بازسازی نو | طراحی و بازسازی مدرن خانه",
-  description: "طراحی و بازسازی مدرن خانه شما با تجربه اسکرول سه‌بعدی",
+  title: "STRUCTURA | Engineered for Elegance",
+  description:
+    "Premier structural renovations. We merge technical mastery with architectural vision to deliver spaces that are structurally sound and aesthetically unparalleled.",
 };
 
 export default function RootLayout({
@@ -20,12 +33,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" dir="rtl" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col" style={{ fontFamily: "var(--font-persian), var(--font-body)" }}>
-        <ScrollProvider>
-          <Navbar />
-          {children}
-        </ScrollProvider>
+    <html
+      lang="en"
+      className={`scroll-smooth ${montserrat.variable} ${hankenGrotesk.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="bg-[#fbf9f9] text-[#1b1c1c] antialiased">
+        <Navbar />
+        {children}
       </body>
     </html>
   );
