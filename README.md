@@ -114,5 +114,5 @@ This project is licensed under the [MIT](LICENSE) license.
 ---
 
 <div align="center">
-Built with ❤️ for architecture and engineering
+Built for architecture and engineering
 </div>
