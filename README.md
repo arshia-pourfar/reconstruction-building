@@ -1,4 +1,4 @@
-# 🏗️ ساختارا | مهندسی برای زیبایی
+# 🏗️ Sakhtara | Engineering for Beauty
 
 <div align="center">
 
@@ -7,112 +7,112 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss)
 
-وب‌سایت رسمی **ساختارا** — استودیو بازسازی ساختاری لوکس؛ جایی که تخصص مهندسی با دید معماری ترکیب می‌شود تا فضاهایی مستحکم و بی‌نظیر خلق کند.
+Official website of **Sakhtara** — a luxury structural renovation studio where engineering expertise meets architectural vision to create spaces that are structurally solid and aesthetically exceptional.
 
 </div>
 
 ---
 
-## ✨ معرفی
+## ✨ Introduction
 
-این پروژه یک وب‌سایت مدرن، تماماً **راست‌چین (RTL)** و فارسی برای یک مجموعه بازسازی و طراحی ساختمان است. تمرکز اصلی روی تجربه کاربری روان، انیمیشن‌های حرفه‌ای اسکرول و طراحی مینیمال لوکس قرار دارد.
+A modern, fully **RTL (Right-to-Left)**, Persian-language website for a building renovation and design company. The focus is on a smooth user experience, professional scroll animations, and a minimal luxury design.
 
-## 🚀 امکانات کلیدی
+## 🚀 Key Features
 
-- 🎬 **Hero انیمیشنی با Canvas** — پخش فریم‌به‌فریم بر اساس اسکرول کاربر
-- 💰 **ماشین‌حساب برآورد هزینه بازسازی** — محاسبه زنده بر اساس متراژ، دامنه کار و سبک طراحی
-- 🏛️ **صفحه نمونه‌کارها (Projects)** — همراه با صفحات داینامیک برای هر پروژه
-- 🌊 **اسکرول نرم و روان** با Lenis و انیمیشن‌های GSAP و AOS
-- 📱 **کاملاً واکنش‌گرا** — بهینه برای موبایل، تبلت و دسکتاپ
-- 🔤 **فونت وزیرمتن** برای تایپوگرافی حرفه‌ای فارسی
-- ⚡ **App Router و Server Components** برای بهترین عملکرد و SEO
+- 🎬 **Canvas-animated Hero** — frame-by-frame playback driven by the user's scroll position
+- 💰 **Renovation Cost Calculator** — live estimation based on area, project scope, and design style
+- 🏛️ **Projects Page** — with dynamic detail pages for each project
+- 🌊 **Buttery-smooth scrolling** powered by Lenis, with GSAP and AOS scroll animations
+- 📱 **Fully responsive** — optimized for mobile, tablet, and desktop
+- 🔤 **Vazirmatn font** for polished Persian typography
+- ⚡ **App Router & Server Components** for top-tier performance and SEO
 
-## 🧰 تکنولوژی‌ها
+## 🧰 Tech Stack
 
-| ابزار | کاربرد |
+| Tool | Purpose |
 |---|---|
-| [Next.js 16](https://nextjs.org) | فریم‌ورک اصلی (App Router) |
-| [React 19](https://react.dev) | کتابخانه رابط کاربری |
-| [TypeScript 5](https://www.typescriptlang.org) | تایپ ایمن |
-| [Tailwind CSS 4](https://tailwindcss.com) | استایل‌دهی |
-| [GSAP](https://gsap.com) | انیمیشن‌های پیشرفته |
-| [AOS](https://michalsnik.github.io/aos/) | انیمیشن هنگام اسکرول |
-| [Lenis](https://lenis.darkroom.engineering) | اسکرول نرم |
+| [Next.js 16](https://nextjs.org) | Core framework (App Router) |
+| [React 19](https://react.dev) | UI library |
+| [TypeScript 5](https://www.typescriptlang.org) | Type safety |
+| [Tailwind CSS 4](https://tailwindcss.com) | Styling |
+| [GSAP](https://gsap.com) | Advanced animations |
+| [AOS](https://michalsnik.github.io/aos/) | Scroll-triggered animations |
+| [Lenis](https://lenis.darkroom.engineering) | Smooth scrolling |
 
-## ⚙️ راه‌اندازی سریع
+## ⚙️ Getting Started
 
-### پیش‌نیازها
+### Prerequisites
 
-- [Node.js](https://nodejs.org) نسخه ۲۰ یا بالاتر
+- [Node.js](https://nodejs.org) version 20 or higher
 - npm / yarn / pnpm / bun
 
-### نصب و اجرا
+### Installation
 
 ```bash
-# ۱. کلون کردن مخزن
+# 1. Clone the repository
 git clone https://github.com/<username>/reconstruction-building.git
 cd reconstruction-building
 
-# ۲. نصب وابستگی‌ها
+# 2. Install dependencies
 npm install
 
-# ۳. اجرای سرور توسعه
+# 3. Start the development server
 npm run dev
 ```
 
-سپس مرورگر خود را روی آدرس [http://localhost:3000](http://localhost:3000) باز کنید.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-## 📜 اسکریپت‌ها
+## 📜 Available Scripts
 
-| دستور | توضیح |
+| Command | Description |
 |---|---|
-| `npm run dev` | اجرای سرور توسعه |
-| `npm run build` | بیلد نسخه پروداکشن |
-| `npm run start` | اجرای نسخه پروداکشن |
-| `npm run lint` | بررسی کیفیت کد با ESLint |
+| `npm run dev` | Start the development server |
+| `npm run build` | Build for production |
+| `npm run start` | Run the production build |
+| `npm run lint` | Lint the codebase with ESLint |
 
-## 🗂️ ساختار پروژه
+## 🗂️ Project Structure
 
 ```
 app/
-├── page.tsx              # صفحه اصلی
-├── layout.tsx            # لیوت سراسری (فونت‌ها، متادیتا، RTL)
-├── globals.css           # استایل‌های سراسری
-├── components/           # کامپوننت‌های مشترک
-│   ├── CanvasHero.tsx    # هیرو انیمیشنی
-│   ├── Navbar.tsx        # منوی سایت
+├── page.tsx              # Home page
+├── layout.tsx            # Root layout (fonts, metadata, RTL)
+├── globals.css           # Global styles
+├── components/           # Shared components
+│   ├── CanvasHero.tsx    # Animated hero
+│   ├── Navbar.tsx        # Site navigation
 │   └── ...
-├── about/                # درباره ما
-├── services/             # خدمات
-├── projects/[slug]/      # نمونه‌کارها (داینامیک)
-├── calculator/           # ماشین‌حساب هزینه
-├── process/              # فرآیند کاری
-├── blog/                 # وبلاگ
-├── rules/                # قوانین
-└── contact/              # تماس با ما
-public/                   # تصاویر، ویدیوها و فریم‌های انیمیشن
+├── about/                # About us
+├── services/             # Services
+├── projects/[slug]/      # Projects (dynamic)
+├── calculator/           # Cost calculator
+├── process/              # Work process
+├── blog/                 # Blog
+├── rules/                # Rules
+└── contact/              # Contact
+public/                   # Images, videos, and animation frames
 ```
 
-## 🚢 دیپلوی
+## 🚢 Deployment
 
-ساده‌ترین روش دیپلوی، استفاده از پلتفرم [Vercel](https://vercel.com/new) است:
+The easiest way to deploy is via [Vercel](https://vercel.com/new):
 
 ```bash
 npx vercel
 ```
 
-یا مخزن را در Vercel متصل کنید؛ بیلد به‌صورت خودکار انجام می‌شود.
+Or connect your repository in Vercel — builds are triggered automatically.
 
-## 🤝 مشارکت
+## 🤝 Contributing
 
-هرگونه پیشنهاد یا گزارش باگ خوش‌آمدید! کافی است یک [Issue](../../issues) ثبت کنید یا Pull Request ارسال کنید.
+Suggestions and bug reports are welcome! Open an [Issue](../../issues) or submit a Pull Request.
 
-## 📄 لایسنس
+## 📄 License
 
-این پروژه تحت لایسنس [MIT](LICENSE) منتشر شده است.
+This project is licensed under the [MIT](LICENSE) license.
 
 ---
 
 <div align="center">
-ساخته شده با ❤️ برای معماری و مهندسی
+Built with ❤️ for architecture and engineering
 </div>
